@@ -1,0 +1,6 @@
+.nav-container {
+    background-color: $primary-color;
+    color: $white;
+    align-items: center;
+    @include flex(flex, row, $just: space-between);
+}

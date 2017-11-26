@@ -1,0 +1,6 @@
+.img {
+    @include m(profile) {
+        width: em(25px);
+        border-radius: 50%;
+    }
+}
