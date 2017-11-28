@@ -3,11 +3,15 @@
         width: em(25px);
         border-radius: 50%;
     }
-
-    // @include m(icon-dashboard) {
-    //     border-left: 3px solid lightgreen;
-    // }
+    @include m(member) {
+        width: em(30px);
+        border-radius: 50%;
+    }
    
+    @include m(social) {
+        background: $primary-color;
+        border-radius: 50%;
+    }
 }
 
 [class^="img--icon"] {
@@ -17,4 +21,29 @@
             margin-top: 20px;
         }
     }
+}
+
+
+// @include m(icon-dashboard) {
+    //     border-left: 3px solid lightgreen;
+    // }
+
+.chevron::before {
+    border-style: solid;
+    border-width: 0.15em 0.15em 0 0;
+    border-color: $primary-color;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    left: 0.15em;
+    position: relative;
+    top: 0.15em;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.45em;
+}
+
+.chevron.right:before {
+    left: 0;
+    transform: rotate(45deg);
 }

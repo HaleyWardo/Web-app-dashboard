@@ -1,7 +1,21 @@
 body {
     font-family: $stack-openSans;
+    // min-width: 378px;
 }
 
 .main-container {
-    max-width: 1024px;
+    // max-width: 1024px;
+}
+
+.alert {
+    background-color: $primary-color;
+    color: white;
+    border-radius: 2px;
+    padding: 13px 10px;
+    margin: 20px;
+    font-size: 13px;
+    font-weight: $font-wt-thin;
+    span {
+        font-weight: $font-wt-bold;
+    }
 }

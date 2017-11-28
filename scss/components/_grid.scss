@@ -40,11 +40,15 @@
     }
 }
 
-.grid__col--5 {
+.grid__col--3 ,
+.grid__col--4 ,
+.grid__col--5 ,
+.grid__col--6 ,
+.grid__col--7 {
     padding: 10px 25px 60px 25px;
     border-top: solid 1px lightgrey;
 
-    &:first-child{
+    &:first-child {
     border-right: solid 1px lightgrey;
     }
 }

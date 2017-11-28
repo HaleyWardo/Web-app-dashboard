@@ -35,34 +35,136 @@
 
             <div class="grid__col--1 dashboard-container">
 
-
-
-<!-- 
                 <div class="grid__row">
-                    <div class="grid__col--4 new-members">
-                        <p>New Members</p>
+                    <!-- Dashboard -->
+                    <div class="grid__col--2 daily-traffic">
+                        <h2>Dashboard</h2>
+                    </div>
+
+                    <!-- Search -->
+                    <input placeholder="Search">
+                </div>
+
+
+                <div class="grid__row">
+                    <!-- Traffic -->
+                    <div class="grid__col--2 traffic">
                         <div>
-                            <img src="images/profile-image.jpg" width="30px" height="30px">
+                            <p class="alert"><span>Alert</span> Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. </p>
+                        </div>
+                        <p>TRAFFIC</p>
+                    </div>
+                </div>
+
+
+                <div class="grid__row">
+                    <!-- Daily Traffic -->
+                    <div class="grid__col--3 daily-traffic">
+                        <p>DAILY TRAFFIC</p>
+                    </div>
+
+                    <!-- Mobile Users -->
+                    <div class="grid__col--3 mobile-users">
+                        <p>MOBILE USERS</p>
+                    </div>
+                </div>
+
+
+                <div class="grid__row">
+                    <!-- Social Stats-->
+                    <div class="grid__col--4 social-stats">
+                        <p>SOCIAL STATS</p>
+                        <!-- Social Media -->
+                        <div class="twitter">
+                            <img class="img--social" src="icons/icon-twitter.svg">
+                                
+                        </div>
+                        <div class="facebook">
+                            <img class="img--social" src="icons/icon-facebook.svg">
+
+                        </div>
+                        <div class="google">
+                            <img class="img--social" src="icons/icon-google-plus.svg">
+                                
+
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="grid__row">
+
+                    <!-- New Members -->
+                    <div class="grid__col--5 new-members">
+                        <p>NEW MEMBERS</p>
+                        <!-- Members -->
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">                          
                             <span>Victoria Chambers</span>
                             <a href= "mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a>
+                            <span>10/15/15</span>
+                        </div>
+
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">                        
+                            <span>Victoria Chambers</span>
+                            <a href= "mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a>
+                            <span>10/15/15</span>
+                        </div>
+
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">                      
+                            <span>Victoria Chambers</span>
+                            <a href= "mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a>
+                            <span>10/15/15</span>
+                        </div>
+
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">                          
+                            <span>Victoria Chambers</span>
+                            <a href= "mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a>
+                            <span>10/15/15</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="grid__col--6 recent-activity">
+                        <p>RECENT ACTIVITY</p>
+                        <!-- Activity -->
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">
+                            <span>Victoria Chambers commented on YourApp's SEO Tips</span>
+                            <span>4 hours ago</span>
+                            <span class="chevron right"></span>
                         </div>
                         <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">
+                            <span>Dale Byrd like the post Facebook's changes for 2016</span>
+                            <span>5 hours ago</span>
+                            <span class="chevron right"></span>
+                        </div>
 
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">
+                            <span>Dawn Wood commented on Facebook's changes for 2016</span>
+                            <span>5 hours ago</span>
+                            <span class="chevron right"></span>
+                        </div>
+
+                        <div>
+                            <img class="img--member" src="images/profile-image.jpg" width="30px" height="30px">
+                            <span>Dan Oliver posted YourApp's SEO Tips</span>
+                            <span>4 hours ago</span>
+                            <span class="chevron right"></span>
                         </div>
                     </div>
-
-                    <div class="grid__col--4 recent-activity">
-                    </div>
-                </div> -->
-
-
-
-
+                </div>
 
 
                 <div class="grid__row">
+
                     <!-- Message User -->
-                    <div class="grid__col--5 message-user">
+                    <div class="grid__col--7 message-user">
                         <p>MESSAGE USER</p>
                         <input class="user-search" placeholder="Search for User">
                         <textarea class="user-message" placeholder="Message for User"></textarea>
@@ -70,22 +172,24 @@
                     </div>
 
                     <!-- Settings -->
-                    <div class="grid__col--5 settings">
+                    <div class="grid__col--7 settings">
                         <p>SETTINGS</p>
 
-                        <label for="email">Send Email Notifications</label>
-                        <label class="switch">
+                        <!-- Toggle switch -->
+                        <div class="switch">
+                            <label for="email">Send Email Notifications</label>
                             <input id="email" type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
+                            <span></span>
+                        </div>
 
-                        <label for="profile">Set Profile to Public</label>
-                        <label class="switch">
+                        <div class="switch">
+                            <label for="profile">Set Profile to Public</label>
                             <input id="profile" type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
+                            <span></span>
+                        </div>
 
-                        <select> <!--timezone option -->
+                        <!--timezone option -->
+                        <select class="timezone"> 
                             <option id="default" value="" disabled selected>Select Timezone</option>
                             <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
                             <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
@@ -171,10 +275,14 @@
                             <option timeZoneId="82" gmtAdjustment="GMT+13:00" useDaylightTime="0" value="13">(GMT+13:00) Nuku'alofa</option>
                         </select>
 
-                        <button class="btn--settings-save">SAVE</button>
-                        <button class="btn--settings-cancel">CANCEL</button>
+                        <div class="btn__settings">
+                            <button class="btn--settings-save">SAVE</button>
+                            <button class="btn--settings-cancel">CANCEL</button>
+                        </div>
+
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
 
     .user-message {
         @extend %input;
-        padding-bottom: 50px;
+        padding-bottom: 85px;
         margin: 15px 0 15px 0;
     }
 }
@@ -16,65 +16,131 @@ textarea::placeholder {
     font-size: 14px;
 }
 
-select{
+select {
     width: 100%;
+    font-size: 14px;
+    color: lightgrey;
+    &:focus {
+        color:rgb(41, 40, 40);
+    }
 }
 
 // ======================================================
 // =================TOGGLE SWITCH=========================
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 70px;
-    height: 25px;
-    input {
-        display:none; //hide default checkbox
-        &:checked + .slider {
-            background-color: $primary-color;
-        }
-        &:checked + .slider:before {
-            -webkit-transform: translateX(45px);
-            -ms-transform: translateX(45px);
-            transform: translateX(45px);
-        }
-        &:focus + .slider {
-            box-shadow: 0 0 1px $primary-color;
-        }
-    }
-}
-  
-  
-  /* The slider */
-.slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #ccc;
--webkit-transition: .4s;
-transition: .4s;
-    &:before {
-        position: absolute;
-        content: "";
-        height: 17px;
-        width: 17px;
-        left: 4px;
-        bottom: 4px;
-        background-color: $white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-}
-  
-  
-  /* Rounded sliders */
-.slider.round {
-border-radius: 34px;
+.settings p {
+    margin-bottom: 25px;
 }
 
-.slider.round:before {
-border-radius: 50%;
+.switch {
+    margin-bottom: 35px;
+    label {
+        font-size: 13px;
+        color: #939ca0;
+        font-weight: $font-wt-bold;
+    }
 }
+
+.timezone {
+    @extend %input;
+}
+
+.switch {
+    @include flex(flex,row);
+    align-items: center;
+    input[type=checkbox]{
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+
+    span {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 85px;
+        height: 30px;
+        background-color: $primary-color;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+    }
+
+    input:checked + span:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
+
+    span:active:after {
+        width: 75px;
+    }
+}
+
+
+
+// .switch {
+//     position: relative;
+//     display: inline-block;
+//     width: 70px;
+//     height: 25px;
+//     input {
+//         display:none; //hide default checkbox
+//         &:checked + .slider {
+//             background-color: $primary-color;
+//         }
+//         &:checked + .slider:before {
+//             -webkit-transform: translateX(45px);
+//             -ms-transform: translateX(45px);
+//             transform: translateX(45px);
+//         }
+//         &:focus + .slider {
+//             box-shadow: 0 0 1px $primary-color;
+//         }
+//     }
+// }
+  
+  
+//   /* The slider */
+// .slider {
+// position: absolute;
+// cursor: pointer;
+// top: 0;
+// left: 0;
+// right: 0;
+// bottom: 0;
+// background-color: #ccc;
+// -webkit-transition: .4s;
+// transition: .4s;
+//     &:before {
+//         position: absolute;
+//         content: "";
+//         height: 17px;
+//         width: 17px;
+//         left: 4px;
+//         bottom: 4px;
+//         background-color: $white;
+//         -webkit-transition: .4s;
+//         transition: .4s;
+//     }
+// }
+  
+  
+//   /* Rounded sliders */
+// .slider.round {
+// border-radius: 34px;
+// }
+
+// .slider.round:before {
+// border-radius: 50%;
+// }

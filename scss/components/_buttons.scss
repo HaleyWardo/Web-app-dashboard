@@ -5,6 +5,11 @@
 //     }
 
 .btn {
+    @include e(settings) {
+        @include flex(flex, row, $just: space-between);
+        margin-top: 20px;
+    }
+
     @include m(message-send) {
         background-color: $primary-color;
         @extend %btn;
@@ -14,14 +19,17 @@
     @include m(settings-save) {
         background-color: $primary-color;
         @extend %btn;
-        width: 35%;
+        width: 47%;
     }
 
     @include m(settings-cancel) {
         background-color: lightgray;
         @extend %btn;
-        width: 35%;
+        width: 47%;
     }
 }
+
+
+
 
 

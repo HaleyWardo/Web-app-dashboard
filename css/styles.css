@@ -403,12 +403,12 @@ p {
 .btn--message-send, .btn--settings-save, .btn--settings-cancel {
   border-radius: 5px;
   border-style: none;
-  padding: 10px;
+  padding: 15px;
   color: #FFF;
   font-size: 13px;
   font-weight: 700; }
 
-.message-user .user-search, .message-user .user-message {
+.message-user .user-search, .message-user .user-message, .timezone {
   border-radius: 5px;
   border-style: none;
   border: 1px solid lightgray;
@@ -431,11 +431,25 @@ p {
 body {
   font-family: "Open Sans", sans-serif; }
 
-.main-container {
-  max-width: 1024px; }
+.alert {
+  background-color: #65619E;
+  color: white;
+  border-radius: 2px;
+  padding: 13px 10px;
+  margin: 20px;
+  font-size: 13px;
+  font-weight: 100; }
+  .alert span {
+    font-weight: 700; }
 
 .img--profile {
   width: 1.5625em;
+  border-radius: 50%; }
+.img--member {
+  width: 1.875em;
+  border-radius: 50%; }
+.img--social {
+  background: #65619E;
   border-radius: 50%; }
 
 [class^="img--icon"] {
@@ -444,8 +458,26 @@ body {
     [class^="img--icon"]:first-child {
       margin-top: 20px; } }
 
+.chevron::before {
+  border-style: solid;
+  border-width: 0.15em 0.15em 0 0;
+  border-color: #65619E;
+  content: '';
+  display: inline-block;
+  height: 0.45em;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.45em; }
+
+.chevron.right:before {
+  left: 0;
+  transform: rotate(45deg); }
+
 .message-user .user-message {
-  padding-bottom: 50px;
+  padding-bottom: 85px;
   margin: 15px 0 15px 0; }
 
 input::placeholder,
@@ -454,52 +486,54 @@ textarea::placeholder {
   font-size: 14px; }
 
 select {
-  width: 100%; }
+  width: 100%;
+  font-size: 14px;
+  color: lightgrey; }
+  select:focus {
+    color: #292828; }
+
+.settings p {
+  margin-bottom: 25px; }
 
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 70px;
-  height: 25px; }
-  .switch input {
-    display: none; }
-    .switch input:checked + .slider {
-      background-color: #65619E; }
-    .switch input:checked + .slider:before {
-      -webkit-transform: translateX(45px);
-      -ms-transform: translateX(45px);
-      transform: translateX(45px); }
-    .switch input:focus + .slider {
-      box-shadow: 0 0 1px #65619E; }
+  margin-bottom: 35px; }
+  .switch label {
+    font-size: 13px;
+    color: #939ca0;
+    font-weight: 700; }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s; }
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 17px;
-    width: 17px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #FFF;
-    -webkit-transition: .4s;
-    transition: .4s; }
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px; }
-
-.slider.round:before {
-  border-radius: 50%; }
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .switch input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden; }
+  .switch span {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 85px;
+    height: 30px;
+    background-color: #65619E;
+    display: block;
+    border-radius: 100px;
+    position: relative; }
+    .switch span:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s; }
+  .switch input:checked + span:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%); }
+  .switch span:active:after {
+    width: 75px; }
 
 @media (min-width: 768px) {
   .grid__row {
@@ -528,19 +562,32 @@ select {
       flex-direction: column;
       justify-content: baseline; } }
 
-.grid__col--5 {
+.grid__col--3,
+.grid__col--4,
+.grid__col--5,
+.grid__col--6,
+.grid__col--7 {
   padding: 10px 25px 60px 25px;
   border-top: solid 1px lightgrey; }
-  .grid__col--5:first-child {
+  .grid__col--3:first-child,
+  .grid__col--4:first-child,
+  .grid__col--5:first-child,
+  .grid__col--6:first-child,
+  .grid__col--7:first-child {
     border-right: solid 1px lightgrey; }
 
+.btn__settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px; }
 .btn--message-send {
   background-color: #65619E; }
 .btn--settings-save {
   background-color: #65619E;
-  width: 35%; }
+  width: 47%; }
 .btn--settings-cancel {
   background-color: lightgray;
-  width: 35%; }
+  width: 47%; }
 
 /*# sourceMappingURL=styles.css.map */
