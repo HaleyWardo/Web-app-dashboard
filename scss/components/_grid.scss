@@ -1,0 +1,50 @@
+// //grid max-width
+// @include mq(medium) {
+//     @for $i from 1 through $g-col-count {
+
+//     $context: g-context($g-col-width, $g-col-count, $g-gutter-width);
+//     $target: ($g-col-width * $i)  +  ($g-gutter-width * ($i - 1));
+
+//         .grid__col--#{$i}{
+//             width: percentage($target, $context);
+//         }
+//     }
+// }
+
+
+//flex for grids
+.grid {
+    @include mq(medium) {
+        @include e(row) {
+            @include flex(flex);
+            .centered {
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+}
+
+.dashboard-container {
+    @include flex(flex, column, $flex: 1);
+    [class^="grid__col--"] {
+        @include flex(flex, column, $flex: 1);
+    }
+}
+
+.sidebar-container {
+    @include flex(flex, row, $just: center);
+    background-color: $secondary-color;  
+    @include mq(medium) {
+        @include flex(flex, column, $just: baseline);
+    }
+}
+
+.grid__col--5 {
+    padding: 10px 25px 60px 25px;
+    border-top: solid 1px lightgrey;
+
+    &:first-child{
+    border-right: solid 1px lightgrey;
+    }
+}

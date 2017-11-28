@@ -3,4 +3,18 @@
         width: em(25px);
         border-radius: 50%;
     }
+
+    // @include m(icon-dashboard) {
+    //     border-left: 3px solid lightgreen;
+    // }
+   
+}
+
+[class^="img--icon"] {
+    margin: 15px 15px ;
+    @include mq(medium) {
+        &:first-child {
+            margin-top: 20px;
+        }
+    }
 }

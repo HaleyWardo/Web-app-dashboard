@@ -1,16 +1,27 @@
 
-// .btn {
-//     @include m(default) {
-//         margin-top: px(30px);
-//     }
-    
-//     @each $theme, $color in $ui-colors {
-//         &--#{$theme}.theme__colors {
-//             background: $color;
-//         }
-//     }
-// }
 
 // [class^="btn--"] {
 //      @extend %btn;  
 //     }
+
+.btn {
+    @include m(message-send) {
+        background-color: $primary-color;
+        @extend %btn;
+
+    }
+
+    @include m(settings-save) {
+        background-color: $primary-color;
+        @extend %btn;
+        width: 35%;
+    }
+
+    @include m(settings-cancel) {
+        background-color: lightgray;
+        @extend %btn;
+        width: 35%;
+    }
+}
+
+

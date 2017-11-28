@@ -1,3 +1,13 @@
+.nav {
+    @include e(item) {
+        font-size: 17px;
+        margin: 20px 20px;
+        span {
+            font-weight: $font-wt-thin;
+        }
+    }
+}
+
 .nav-container {
     background-color: $primary-color;
     color: $white;

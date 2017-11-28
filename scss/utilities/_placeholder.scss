@@ -24,4 +24,20 @@
     margin: 0 auto;
 }
 
+%btn {
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px; 
+    color: $white;
+    font-size: 13px;
+    font-weight: $font-wt-bold;
+}
+
+%input {
+    border-radius: 5px;
+    border-style: none;
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
 
