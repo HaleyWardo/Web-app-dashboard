@@ -442,20 +442,37 @@ body {
   font-size: 13px;
   font-weight: 100; }
 
-#overlay {
+.modal {
+  display: none;
   position: fixed;
-  left: 36%; }
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); }
 
-#overlay div {
-  width: 300px;
-  margin: 100px auto;
+.modal-content {
   background-color: #65619E;
-  border: 1px solid #65619E;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #564483;
   border-radius: 5px;
-  padding: 15px;
-  text-align: center; }
-  #overlay div p {
-    color: #FFF; }
+  width: 50%; }
+  .modal-content p {
+    color: #FFF;
+    font-size: 17px; }
+
+.closeModal {
+  color: #FFF;
+  float: right;
+  font-size: 23px;
+  font-weight: 700; }
+
+.closeModal:hover {
+  cursor: pointer;
+  color: lightgrey; }
 
 .img--profile {
   width: 1.5625em;
