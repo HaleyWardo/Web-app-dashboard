@@ -1,6 +1,8 @@
 body {
     font-family: $stack-openSans;
     // min-width: 378px;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .main-container {
@@ -15,7 +17,40 @@ body {
     margin: 20px;
     font-size: 13px;
     font-weight: $font-wt-thin;
-    span {
-        font-weight: $font-wt-bold;
+}
+
+
+
+
+
+
+
+
+
+#overlay {
+
+ 
+    position: fixed;
+    left: 36%;
+
+    // position: absolute;
+    // top: 1080px;
+    // left: 110px;
+    // height: 200px; 
+    // margin: 0 auto;
+    // z-index: 5000;
+}
+
+
+#overlay div {
+    width:300px;
+    margin: 100px auto;
+    background-color: $primary-color;
+    border:1px solid $primary-color;
+    border-radius: 5px;
+    padding:15px;
+    text-align:center;
+    p {
+        color: $white;
     }
 }
