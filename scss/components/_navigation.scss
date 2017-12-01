@@ -43,8 +43,6 @@
     }  
 }
 
-
-
 //////////////////
 ///VERTICAL NAV///
 //////////////////
@@ -55,13 +53,11 @@
         background-color: $secondary-color;  
         @include mq(medium) {
             @include flex(flex, column, $just: baseline);
-        }
-        
+        }  
     }
-}
-.nav-vertical {
     .nav__icon {
-        margin: em(15px) em(15px);
+        fill: lightgrey;
+        height: 25px;
 
         @include mq(medium) {
             &:first-child {
@@ -69,4 +65,8 @@
             }
         }
     }
+}
+
+path {
+   color: red;
 }
