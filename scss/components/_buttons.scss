@@ -1,23 +1,19 @@
 
 
-// [class^="btn--"] {
-//      @extend %btn;  
-//     }
-
 .btn {
     @include e(settings) {
         @include flex(flex, row, $just: space-between);
-        margin-top: 20px;
+        margin-top: em(20px);
     }
 
     @include m(message-send) {
-        background-color: $primary-color;
+        @extend %prim-bckgrnd;
         @extend %btn;
-
+        width: 100%;
     }
 
     @include m(settings-save) {
-        background-color: $primary-color;
+        @extend %prim-bckgrnd;
         @extend %btn;
         width: 47%;
     }

@@ -1,50 +1,56 @@
 .img {
-    @include m(profile) {
-        width: em(25px);
+    @include m(avatar) {
+        width: em(35px);
         border-radius: 50%;
     }
-    @include m(member) {
-        width: em(30px);
-        border-radius: 50%;
+
+    @include m(notification) {
+        padding-right: 15px;
+        border-right: solid 1px $secondary-color;
     }
-   
-    @include m(social) {
-        background: $primary-color;
-        border-radius: 50%;
-        width: 55px;
-    }
+  
+    // @include m(social) {
+    //     background: $primary-color;
+    //     border-radius: 50%;
+    //     width: 55px;
+    // }
 }
 
-[class^="img--icon"] {
-    margin: 15px 15px ;
-    @include mq(medium) {
-        &:first-child {
-            margin-top: 20px;
-        }
-    }
+.magnifying-glass img {
+    width: 20px;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 // @include m(icon-dashboard) {
     //     border-left: 3px solid lightgreen;
     // }
 
-.chevron::before {
-    border-style: solid;
-    border-width: 0.15em 0.15em 0 0;
-    border-color: $primary-color;
-    content: '';
-    display: inline-block;
-    height: 0.45em;
-    left: 0.15em;
-    position: relative;
-    top: 0.15em;
-    transform: rotate(-45deg);
-    vertical-align: top;
-    width: 0.45em;
-}
+// .chevron::before {
+//     border-style: solid;
+//     border-width: 0.15em 0.15em 0 0;
+//     border-color: $primary-color;
+//     content: '';
+//     display: inline-block;
+//     height: 0.45em;
+//     left: 0.15em;
+//     position: relative;
+//     top: 0.15em;
+//     transform: rotate(-45deg);
+//     vertical-align: top;
+//     width: 0.45em;
+// }
 
-.chevron.right:before {
-    left: 0;
-    transform: rotate(45deg);
-}
+// .chevron.right:before {
+//     left: 0;
+//     transform: rotate(45deg);
+// }

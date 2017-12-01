@@ -1,14 +1,4 @@
-.message-user {
-    .user-search {
-        @extend %input;
-    }
 
-    .user-message {
-        @extend %input;
-        padding-bottom: 85px;
-        margin: 15px 0 15px 0;
-    }
-}
 
 input::placeholder,
 textarea::placeholder {
@@ -25,67 +15,16 @@ select {
     }
 }
 
+.message-user {
+    .user-search {
+        @extend %input;
+    }
+
+    .user-message {
+        @extend %input;
+        padding-bottom: 85px;
+        margin: 15px 0 15px 0;
+    }
+}
 // ======================================================
 // =================TOGGLE SWITCH=========================
-
-.settings p {
-    margin-bottom: 25px;
-}
-
-.switch {
-    margin-bottom: 35px;
-    label {
-        font-size: 13px;
-        color: #939ca0;
-        font-weight: $font-wt-bold;
-    }
-}
-
-.timezone {
-    @extend %input;
-}
-
-.switch {
-    @include flex(flex,row);
-    align-items: center;
-    input[type=checkbox]{
-        height: 0;
-        width: 0;
-        visibility: hidden;
-    }
-
-    span {
-        cursor: pointer;
-        text-indent: -9999px;
-        width: 85px;
-        height: 30px;
-        background-color: $primary-color;
-        display: block;
-        border-radius: 100px;
-        position: relative;
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 90px;
-            transition: 0.3s;
-        }
-    }
-
-    input:checked + span:after {
-        left: calc(100% - 5px);
-        transform: translateX(-100%);
-    }
-
-    span:active:after {
-        width: 75px;
-    }
-}
-
-
-

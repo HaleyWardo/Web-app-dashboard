@@ -9,6 +9,11 @@
 
 // =============== HELPERS ======================//
 
+//Border radius
+%br {
+    border-radius: em(5px);
+}
+
 //Centered
 %centered {
     text-align: center;
@@ -25,19 +30,24 @@
 }
 
 %btn {
-    border-radius: 5px;
+    @extend %br;
     border-style: none;
-    padding: 15px; 
+    padding: em(15px); 
     color: $white;
-    font-size: 13px;
+    font-size: em(13px);
     font-weight: $font-wt-bold;
 }
 
 %input {
-    border-radius: 5px;
+    @extend %br;
     border-style: none;
     border: 1px solid lightgray;
-    padding: 10px;
+    padding: em(10px);
+}
+
+//Background color - primary color 
+%prim-bckgrnd {
+    background-color: $primary-color;
 }
 
 

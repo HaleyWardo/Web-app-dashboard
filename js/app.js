@@ -149,9 +149,11 @@ alertCloseLi.addEventListener("click", () => {
 
 //When user clicks send button a modal pops up
 sendButton.addEventListener("click", () => {
-    const userSearch = document.querySelector(".user-search");
-    const userMessage = document.querySelector(".user-message");
+    const userSearch = document.querySelector(".user--search");
+    const userMessage = document.querySelector(".user--message");
 
+    event.preventDefault();
+    
     //When search user and message field are empty
     if (userSearch.value.length == 0 || userMessage.value.length == 0) {
         modalMessage.innerHTML = "Missing required field";
@@ -160,6 +162,8 @@ sendButton.addEventListener("click", () => {
     else {
         modalMessage.innerHTML = "Message sent";
         overlay.style = "display: block";
+        userSearch.value = "";
+        userMessage.value = "";
     }
 });
 
@@ -167,5 +171,4 @@ sendButton.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
     overlay.style = "display: none";
 });
-
 

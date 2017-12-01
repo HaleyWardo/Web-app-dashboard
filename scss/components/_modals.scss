@@ -1,0 +1,42 @@
+
+//SEND BUTTON MODAL
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+
+    &-content {
+        background-color: $primary-color;        
+        border: 1px solid $secondary-color;
+        margin: 15% auto;
+        padding: em(20px);
+        width: 50%;
+        @extend %br;
+
+        p {
+            color: $white;
+            font-size: em(17px);
+        }
+    }
+}
+
+.closeModal {
+    color: $white;
+    float: right;
+    font-size: em(23px);
+    font-weight: $font-wt-bold;
+    
+    &:hover {
+        cursor: pointer;
+        color: lightgrey;
+    }
+}
+
+
+

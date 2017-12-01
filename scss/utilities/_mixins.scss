@@ -16,12 +16,13 @@
 
 //FLEX MIXIN
 
-@mixin flex ($display: flex, $dir: null, $wrap: null, $just: null, $flex: null){
+@mixin flex ($display: flex, $dir: null, $wrap: null, $just: null, $flex: null, $align: null){
     display: $display;
     flex-direction: $dir;
     flex-wrap: $wrap;
     justify-content: $just;
     flex: $flex;
+    align-items: $align;
     @content;
 }
 

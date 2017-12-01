@@ -10,51 +10,12 @@ body {
 }
 
 .alert {
-    background-color: $primary-color;
-    color: white;
+    @extend %prim-bckgrnd;    
+    color: $white;
     border-radius: 2px;
     padding: 13px 10px;
     margin: 20px;
     font-size: 13px;
     font-weight: $font-wt-thin;
-}
-
-
-//SEND BUTTON MODAL
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5); 
-}
-
-.modal-content {
-    background-color: $primary-color;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid $secondary-color;
-    border-radius: 5px;
-    width: 50%;
-    p {
-        color: $white;
-        font-size: 17px;
-    }
-}
-
-.closeModal {
-    color: $white;
-    float: right;
-    font-size: 23px;
-    font-weight: $font-wt-bold;
-}
-
-.closeModal:hover {
-    cursor: pointer;
-    color: lightgrey;
 }
 
