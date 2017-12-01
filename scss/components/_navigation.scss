@@ -49,24 +49,27 @@
 
 .nav {
     &-vertical {
-        @include flex(flex, row, $just: center);
         background-color: $secondary-color;  
+        margin: 0;
+        padding-top: 15px;
+        @include flex(flex, row, $just: center);
+
         @include mq(medium) {
             @include flex(flex, column, $just: baseline);
-        }  
+            padding-left: 20px;
+        } 
     }
-    .nav__icon {
-        fill: lightgrey;
-        height: 25px;
 
-        @include mq(medium) {
-            &:first-child {
-                margin-top: em(20px);
-            }
-        }
+    //list items
+    @include e(item-vertical) {
+        width: 60px;
+
+        // @include mq(medium) {
+        //     &:first-child {
+        //         margin-top: em(20px);
+        //     }
+        // }
     }
+   
 }
 
-path {
-   color: red;
-}

@@ -450,21 +450,20 @@ p {
   right: 9.6875em; }
 
 .nav-vertical {
+  background-color: #564483;
+  margin: 0;
+  padding-top: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: #564483; }
+  justify-content: center; }
   @media (min-width: 768px) {
     .nav-vertical {
       display: flex;
       flex-direction: column;
-      justify-content: baseline; } }
-
-.nav-vertical .nav__icon {
-  margin: 0.9375em 0.9375em; }
-  @media (min-width: 768px) {
-    .nav-vertical .nav__icon:first-child {
-      margin-top: 1.25em; } }
+      justify-content: baseline;
+      padding-left: 20px; } }
+.nav__item-vertical {
+  width: 60px; }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -555,6 +554,12 @@ select {
 .btn--settings-cancel {
   background-color: lightgray;
   width: 47%; }
+
+.nav__icon {
+  fill: lightgrey;
+  height: 45px; }
+  .nav__icon:hover {
+    fill: #FFF; }
 
 .modal {
   display: none;
