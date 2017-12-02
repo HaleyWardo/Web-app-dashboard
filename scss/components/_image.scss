@@ -5,9 +5,10 @@
     }
 
     @include m(notification) {
-        padding-right: 15px;
+        padding-right: 20px;
         border-right: solid 1px $secondary-color;
     }
+
   
     // @include m(social) {
     //     background: $primary-color;
@@ -16,19 +17,13 @@
     // }
 }
 
-.magnifying-glass img {
-    width: 20px;
+
+
+.magnifying {
+    position: relative;
+    top: 17px;
+    right: 45px;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // @include m(icon-dashboard) {

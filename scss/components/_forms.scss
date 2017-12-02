@@ -1,5 +1,18 @@
 
 
+.search {
+    width: 40%;
+    padding-left: 15px;
+    margin: 10px 5px 10px 0;
+    border-style: none;
+    border: 1px solid lightgrey;
+    @extend %br;
+
+    &-container {
+        background-color: #faf8f8;
+    }
+}
+
 input::placeholder,
 textarea::placeholder {
     color: lightgrey;

@@ -137,7 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
     alertMessageLi.innerText = "Alert Your email has not been verified. Please verify your email.";
    
     alertUl.appendChild(alertCloseLi);
-    alertCloseLi.innerText= "X";
+    alertCloseLi.innerText = "x";
+    alertCloseLi.className = "alert-close";
 
     overlay.style = "display:none";
 });

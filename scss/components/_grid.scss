@@ -35,3 +35,35 @@
     border-right: solid 1px lightgrey;
     }
 }
+
+.main-container {
+    @include mq(medium) {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.dashboard {
+    flex: 0 !important;
+    padding: 0 25px;
+    border-right: 1px solid lightgrey;
+    
+    h2 {
+        color: grey;
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
+.dashboard-container {
+    .grid__row {
+        justify-content: space-between;
+    }
+}
+
+.search-container {
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+    justify-content: flex-end;
+}
