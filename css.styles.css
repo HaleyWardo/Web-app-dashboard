@@ -583,9 +583,6 @@ select {
     font-size: 20px;
     font-weight: 400; }
 
-@media (min-width: 768px) {
-  .dashboard-container {
-    width: 710px; } }
 .dashboard-container .grid__row {
   justify-content: space-between; }
 
@@ -594,10 +591,6 @@ select {
   border-bottom: 1px solid lightgrey;
   width: 100%;
   justify-content: flex-end; }
-
-.chart-filter {
-  display: flex;
-  flex-direction: row; }
 
 .btn__settings {
   display: flex;
@@ -648,4 +641,4 @@ select {
     cursor: pointer;
     color: lightgrey; }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=css.styles.css.map */
