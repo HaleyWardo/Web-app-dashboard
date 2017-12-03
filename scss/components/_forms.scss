@@ -29,11 +29,11 @@ select {
 }
 
 .message-user {
-    .user-search {
+    .user--search {
         @extend %input;
     }
 
-    .user-message {
+    .user--message {
         @extend %input;
         padding-bottom: 85px;
         margin: 15px 0 15px 0;

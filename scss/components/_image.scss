@@ -21,8 +21,12 @@
 
 .magnifying {
     position: relative;
+    top: 11px;
+    right: 30px;
+
+    @include mq(medium) {
     top: 17px;
-    right: 45px;
+    }
 }
 
 

@@ -7,6 +7,7 @@ const alert = document.querySelector(".alert");
 const alertUl = document.createElement('ul');
 const alertMessageLi = document.createElement('li');
 const alertCloseLi = document.createElement('li');
+const alertSpan = document.createElement('span');
 
 const sendButton = document.querySelector(".btn--message-send");
 const overlay = document.querySelector("#overlay");
@@ -14,46 +15,36 @@ const modalMessage = document.querySelector(".modal-message");
 
 const closeModal = document.querySelector(".closeModal");
 
-// const members = [
-//     {
-//         name:
-//     }
-// ]
-
 
 ///////////////////////
 /////// CHARTS ////////
 ///////////////////////
 
-//LINE CHART
-// var trafficChart = document.getElementById("lineChart");
-// var lineChart = new Chart(trafficChart, {
-//     type: 'line',
-//     data: [{
-//         x: 0.8,
-//         y: 0
-//     }, 
-//     {
-//         x: 15,
-//         y: 10
-//     }]
-//     // backgroundColor: [
-//     //     '#65619E',
-//     //     '#65619E',
-//     //     '#65619E',
-//     //     '#65619E',
-//     //     '#65619E',
-    
-//     // datasets: [
-//     //     {fill: 'origin'},   // 0: fill to 'origin'
-//     //     {fill: '-1'},       // 1: fill to dataset 0
-//     //     {fill: 1},          // 2: fill to dataset 1
-//     //     {fill: false},      // 3: no fill
-//     //     {fill: '-2'}        // 4: fill to dataset 2
-//     // ]
-
-//     // options: 
-// });
+// LINE CHART
+var trafficChart = document.getElementById("lineChart");
+var lineChart = new Chart(trafficChart, {
+    type: 'line',
+    data: {
+        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+        datasets: [{ 
+            data: [250,1250,1000,1500,2000,1500,1750,1250,2250,1750,2250],
+            borderColor: "#65619E",
+            borderWidth: 1,
+            backgroundColor: "rgba(101, 97, 158, 0.15)",
+            pointBackgroundColor: "white",
+            pointBorderWidth: 2,
+            fill: 'origin',
+            radius: 6,
+            tension: 0,
+            }
+        ]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+    }
+  });
 
 // BAR CHART
 var dailyTrafficChart = document.getElementById("barChart")
@@ -87,6 +78,9 @@ var barChart = new Chart(context, {
         }]
     },
     options: {
+        legend: {
+            display: false
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -120,8 +114,12 @@ var donutChart = new Chart(mobileUserChart, {
                 '#65619E',
             ]
         }],     
+    },
+    options: {
+        legend: {
+            display: false
+        },
     }
-    // options: options
 });
 
 
@@ -133,8 +131,12 @@ var donutChart = new Chart(mobileUserChart, {
 document.addEventListener("DOMContentLoaded", () => {
     alert.appendChild(alertUl);
 
+    alertUl.appendChild(alertSpan);
+    alertSpan.innerHTML = "Alert";
+    alertSpan.className = "alert-span";
+
     alertUl.appendChild(alertMessageLi);
-    alertMessageLi.innerText = "Alert Your email has not been verified. Please verify your email.";
+    alertMessageLi.innerText = "Nullam quis risus eget urna mollis ornare cel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.";
    
     alertUl.appendChild(alertCloseLi);
     alertCloseLi.innerText = "x";

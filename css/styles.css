@@ -400,7 +400,7 @@ p {
   font-weight: 600;
   color: #939ca0; }
 
-.btn--message-send, .btn--settings-save, .btn--settings-cancel, .message-user .user-search, .message-user .user-message, .search, .modal-content {
+.btn--message-send, .btn--settings-save, .btn--settings-cancel, .message-user .user--search, .message-user .user--message, .search, .modal-content {
   border-radius: 0.3125em; }
 
 .btn--message-send, .btn--settings-save, .btn--settings-cancel {
@@ -410,7 +410,7 @@ p {
   font-size: 0.8125em;
   font-weight: 700; }
 
-.message-user .user-search, .message-user .user-message {
+.message-user .user--search, .message-user .user--message {
   border-style: none;
   border: 1px solid lightgray;
   padding: 0.625em; }
@@ -479,7 +479,7 @@ p {
       border-bottom: none; } }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   max-width: 1024px;
   min-width: 380px;
   margin: 0 auto; }
@@ -489,6 +489,17 @@ body {
   border-radius: 2px;
   margin: 20px;
   font-size: 13px; }
+  .alert span {
+    font-weight: 700;
+    font-size: 14px; }
+  .alert ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+    font-weight: 100;
+    font-size: 12px; }
   .alert-close {
     position: relative;
     font-weight: 700;
@@ -503,8 +514,11 @@ body {
 
 .magnifying {
   position: relative;
-  top: 17px;
-  right: 45px; }
+  top: 11px;
+  right: 30px; }
+  @media (min-width: 768px) {
+    .magnifying {
+      top: 17px; } }
 
 .search {
   width: 40%;
@@ -527,7 +541,7 @@ select {
   select:focus {
     color: #292828; }
 
-.message-user .user-message {
+.message-user .user--message {
   padding-bottom: 85px;
   margin: 15px 0 15px 0; }
 
@@ -576,7 +590,7 @@ select {
 
 .dashboard {
   flex: 0 !important;
-  padding: 0 25px;
+  padding: 0 20px;
   border-right: 1px solid lightgrey; }
   .dashboard h2 {
     color: grey;
@@ -595,7 +609,33 @@ select {
   width: 100%;
   justify-content: flex-end; }
 
+.traffic-bar {
+  margin: 0px 20px; }
+  @media (min-width: 768px) {
+    .traffic-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; } }
+
 .chart-filter {
+  color: #939ca0; }
+  @media (min-width: 768px) {
+    .chart-filter {
+      display: flex;
+      flex-direction: row; } }
+  .chart-filter li {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 5px;
+    border-radius: 20px;
+    padding: 7px 15px;
+    transition: .5s; }
+    .chart-filter li:hover {
+      background-color: #75D799;
+      color: #FFF;
+      cursor: pointer; }
+
+.donut-Chart-Container {
   display: flex;
   flex-direction: row; }
 
