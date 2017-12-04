@@ -55,11 +55,11 @@
         width: 100%;
         margin: 0;
         padding-top: 15px;
+        padding-left: 0px;
         @include flex(flex, row, $just: center);
 
         @include mq(medium) {
             @include flex(flex, column, $just: baseline);
-            padding-left: 0;
             width: 60px; 
         } 
     }

@@ -1,6 +1,5 @@
 body {
     font-family: $stack-roboto;
-    // min-width: 378px;
     max-width: 1024px;
     min-width: 380px;
     margin: 0 auto;
@@ -17,14 +16,16 @@ body {
     span {
         font-weight: $font-wt-bold;
         font-size: 14px;
+        margin-right: 10px;
+
+        @include mq(large) {
+            margin-right: 0;
+        }
     }
 
     ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include flex(flex, row, $just: space-between, $align: center);
         padding: 0 15px;
-        align-items: center;
         font-weight: 100;
         font-size: 12px;
         
@@ -34,5 +35,7 @@ body {
         position: relative;
         font-weight: $font-wt-bold;
         font-size: 18px;
+        margin-left: 5px;
+        cursor: pointer;
     }
 }

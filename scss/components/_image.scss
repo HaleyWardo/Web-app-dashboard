@@ -9,24 +9,19 @@
         border-right: solid 1px $secondary-color;
     }
 
-  
-    // @include m(social) {
-    //     background: $primary-color;
-    //     border-radius: 50%;
-    //     width: 55px;
-    // }
+    @include m(social) {
+        padding: 15px;
+        background-color: $primary-color;
+        border-radius: 50%;
+    }
 }
 
 
 
 .magnifying {
     position: relative;
-    top: 11px;
+    top: 20px;
     right: 30px;
-
-    @include mq(medium) {
-    top: 17px;
-    }
 }
 
 

@@ -152,8 +152,8 @@ alertCloseLi.addEventListener("click", () => {
 
 //When user clicks send button a modal pops up
 sendButton.addEventListener("click", () => {
-    const userSearch = document.querySelector(".user--search");
-    const userMessage = document.querySelector(".user--message");
+    const userSearch = document.querySelector(".user__search");
+    const userMessage = document.querySelector(".user__message");
 
     event.preventDefault();
     
