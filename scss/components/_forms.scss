@@ -21,10 +21,21 @@
     }    
 }
 
-input::placeholder,
-textarea::placeholder {
-    color: lightgrey;
-    font-size: 14px;
+.user {
+    form {
+        @include flex(flex, column);
+    }
+
+    @include e(search) {
+        margin-top: 5px;
+        @extend %input;
+    }
+
+    @include e(message) {
+        @extend %input;
+        padding-bottom: 85px;
+        resize: none;
+    }
 }
 
 .settings {
@@ -42,23 +53,11 @@ textarea::placeholder {
     }
 }
 
-.user {
-    form {
-        @include flex(flex, column);
-    }
-
-    @include e(search) {
-        margin-top: 5px;
-        @extend %input;
-    }
-
-    @include e(message) {
-        @extend %input;
-        padding-bottom: 85px;
-    }
+input::placeholder,
+textarea::placeholder {
+    color: lightgrey;
+    font-size: 14px;
 }
-
-
 
 // ====================================
 // ===========TOGGLE SWITCH============

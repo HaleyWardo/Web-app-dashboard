@@ -4,10 +4,15 @@
 
 const alert = document.querySelector(".alert");
 
-const alertUl = document.createElement('ul');
-const alertMessageLi = document.createElement('li');
-const alertCloseLi = document.createElement('li');
-const alertSpan = document.createElement('span');
+const notificationCircle = document.querySelector(".nav--circle");
+const notification = document.querySelector(".img--notification");
+const notificationOverlay = document.querySelector(".overlay__notification");
+
+const verificationDiv = document.querySelector(".verification");
+const verificationClose = document.querySelector(".verification__close");
+
+const messageDiv = document.querySelector(".message");
+const messageClose = document.querySelector(".message__close");
 
 const sendButton = document.querySelector(".btn--message-send");
 const overlay = document.querySelector("#overlay");
@@ -20,7 +25,14 @@ const closeModal = document.querySelector(".closeModal");
 ///////////////////////
 
 
-
+$.ajax({
+    url: 'https://randomuser.me/api/?inc=name,email,picture,registered/?results=20',
+    dataType: 'json',
+    success: function(data) {
+      console.log(data);
+    }
+  });
+        
 
 
 
@@ -142,8 +154,17 @@ var donutChart = new Chart(mobileUserChart, {
 /// EVENT LISTENERS ///
 ///////////////////////
 
+
+/////////////////////////////
+//ALERT MODAL EVENT LISTENER/
+/////////////////////////////
+
 //Add alert message to document
 document.addEventListener("DOMContentLoaded", () => {
+    const alertUl = document.createElement('ul');
+    const alertMessageLi = document.createElement('li');
+    const alertSpan = document.createElement('span');
+
     alert.appendChild(alertUl);
 
     alertUl.appendChild(alertSpan);
@@ -160,10 +181,46 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.style = "display:none";
 });
 
+const alertCloseLi = document.createElement('li');
+
 //When user clicks "X" alert message closes
 alertCloseLi.addEventListener("click", () => {
     alert.remove();
 });
+
+
+/////////////////////////////
+//NOTIFICATION EVENT LISTENER
+/////////////////////////////
+
+//When user clicks bell icon, notification modal pops up
+notification.addEventListener("click", () => {
+    notificationOverlay.style = "display:inline-block";
+});
+
+
+//When user clicks "X" modal closes
+verificationClose.addEventListener("click", () => {
+    verificationDiv.remove();
+    removeOverlay();
+});
+
+messageClose.addEventListener("click", () => {
+    messageDiv.remove();
+    removeOverlay();
+});
+
+//removes overlay if notificationOverlay is empty
+function removeOverlay() { 
+    if (notificationOverlay.innerText == "") {
+        notificationOverlay.remove();
+        notificationCircle.remove();
+    }
+}
+
+/////////////////////////////
+//USER MODAL EVENT LISTENER//
+/////////////////////////////
 
 //When user clicks send button a modal pops up
 sendButton.addEventListener("click", () => {
@@ -189,4 +246,5 @@ sendButton.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
     overlay.style = "display: none";
 });
+
 
