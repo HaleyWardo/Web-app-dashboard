@@ -36,15 +36,9 @@ textarea::placeholder {
         margin-bottom: 0;
     }
 
-    @include e(email) {
+    @include e(switch) {
         @extend %settings-input;        
-        font-size: 15px;
-        margin-top: 15px;
-
-    }
-
-    @include e(profile) {
-        @extend %settings-input;
+        @include flex(flex, row, $align: center);
     }
 }
 
@@ -63,5 +57,81 @@ textarea::placeholder {
         padding-bottom: 85px;
     }
 }
-// ======================================================
-// =================TOGGLE SWITCH=========================
+
+
+
+// ====================================
+// ===========TOGGLE SWITCH============
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 95px;
+    height: 30px;
+
+    input {
+        display: none;
+
+        &:checked  + .slider {
+            background-color: $primary-color;
+
+            &:after {
+                content:'ON';
+            }
+
+            &:before {
+               transform: translateX(65px);
+            }
+        }
+
+        &:focus + .slider {
+            box-shadow: 0 0 1px #2196f3;
+        }
+    }
+
+    .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: .4s;
+        cursor: pointer;
+        background-color: $grey;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+            height: 22px;
+            width: 24px;
+            background-color: $white;
+            transition: .4s;
+        }
+
+        &:after {
+            content:'OFF';
+            color: white;
+            display: block;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            font-size: 14px;
+            font-weight: $font-wt-bold;
+        }
+    }
+}
+
+.slider.round {
+    border-radius: 34px;
+  }
+  
+.slider.round:before {
+border-radius: 50%;
+}
+
+
+
+  

@@ -15,6 +15,21 @@ const modalMessage = document.querySelector(".modal-message");
 
 const closeModal = document.querySelector(".closeModal");
 
+///////////////////////
+////// MEMBERS ////////
+///////////////////////
+
+
+
+
+
+
+
+
+        
+
+
+
 
 ///////////////////////
 /////// CHARTS ////////

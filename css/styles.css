@@ -416,8 +416,8 @@ p {
   padding: 0.625em;
   margin-bottom: 15px; }
 
-.settings__email, .settings__profile {
-  margin-bottom: 50px;
+.settings__switch {
+  margin-bottom: 34px;
   font-size: 15px; }
 
 .alert, .btn--message-send, .btn--settings-save {
@@ -559,9 +559,10 @@ textarea::placeholder {
   font-size: 14px;
   padding: 10px;
   margin-bottom: 0; }
-.settings__email {
-  font-size: 15px;
-  margin-top: 15px; }
+.settings__switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .user form {
   display: flex;
@@ -570,6 +571,56 @@ textarea::placeholder {
   margin-top: 5px; }
 .user__message {
   padding-bottom: 85px; }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 95px;
+  height: 30px; }
+  .switch input {
+    display: none; }
+    .switch input:checked + .slider {
+      background-color: #65619E; }
+      .switch input:checked + .slider:after {
+        content: 'ON'; }
+      .switch input:checked + .slider:before {
+        transform: translateX(65px); }
+    .switch input:focus + .slider {
+      box-shadow: 0 0 1px #2196f3; }
+  .switch .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+    cursor: pointer;
+    background-color: #808080; }
+    .switch .slider:before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      bottom: 4px;
+      height: 22px;
+      width: 24px;
+      background-color: #FFF;
+      transition: .4s; }
+    .switch .slider:after {
+      content: 'OFF';
+      color: white;
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      font-size: 14px;
+      font-weight: 700; }
+
+.slider.round {
+  border-radius: 34px; }
+
+.slider.round:before {
+  border-radius: 50%; }
 
 @media (min-width: 768px) {
   .grid__row {
