@@ -28,11 +28,13 @@
 .grid__col--5 ,
 .grid__col--6 ,
 .grid__col--7 {
-    padding: 10px 25px 60px 25px;
+    padding: 10px 25px 50px 25px;
     border-top: solid 1px lightgrey;
 
-    &:first-child {
-    border-right: solid 1px lightgrey;
+    @include mq(medium) {
+        &:first-child {
+        border-right: solid 1px lightgrey;
+        }
     }
 }
 
@@ -67,6 +69,10 @@
 .dashboard-container {
     @include mq(medium) {
         width: 710px;
+    }
+
+    @include mq(large) {
+        border-right: 2px solid $primary-color;
     }
 }
 
@@ -122,4 +128,52 @@
     @include e(stats) {
         margin-left: 20px;
     }
+}
+
+
+
+.members {
+    @include flex(flex, row, $align: center);
+    color: #616161;
+    font-size: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid lightgrey;
+
+    &:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    @include m(img) {
+        border-radius: 50%;
+        width: 40px;
+    }
+
+    @include e(info) {
+        @include flex(flex, column, $flex: 2);
+        padding-left: 10px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    @include e(name){
+        font-size: 13px;
+    }
+
+    @include e(email) {
+        color: $primary-color;
+        font-size: 13px;
+    }
+
+    @include e(reg) {
+        font-size: 12px;
+    }
+
+    @include e(time) {
+        font-size: 12px;
+    }
+
+   
 }

@@ -46,12 +46,17 @@
             width: 50%;
         }
 
+        @include mq(large) {
+            max-width: 1000px;
+        }
+
         @include m(img) {
             width: 100px;
             margin: 0 10px 0 20px;
         }
 
         @include e(content) {
+            width: 100%;
             @include flex(flex, wrap, $wrap: wrap);
         
             p {
@@ -76,6 +81,10 @@
 
         @include mq(medium) {
             width: 50%;
+        }
+
+        @include mq(large) {
+            max-width: 1000px;
         }
 
         @include m(img) {

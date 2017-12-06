@@ -32,12 +32,8 @@
     }
 }
 
-.donut-Chart-Container {
-    display: flex;
-    flex-direction: row;
+.daily-traffic, 
+.mobile-users {
+    padding-bottom: 0;
 }
 
-#donutChart {
-    width: 220px !important;
-    height: 220px !important;
-}

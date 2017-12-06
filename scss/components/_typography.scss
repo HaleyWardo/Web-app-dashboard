@@ -5,6 +5,11 @@ body {
     margin: 0 auto;
 }
 
+.pHeading {
+    font-size: 13px;
+    font-weight: 600;
+    color: #939ca0;
+}
 
 .alert {
     @extend %prim-bckgrnd;    

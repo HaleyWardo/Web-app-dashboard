@@ -40,7 +40,7 @@
 
 .settings {
     @include e(timezone) {
-        width: 100%;
+        width: 100% !important;
         font-size: 14px;
         @extend %input;
         padding: 10px;
@@ -56,6 +56,12 @@
         @include mq(medium) {
             width: 70%;
         }
+    }
+
+    p {
+        font-size: 13px;
+        color: #939ca0;
+        font-weight: $font-wt-bold;
     }
 }
 
