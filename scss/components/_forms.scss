@@ -48,8 +48,14 @@
     }
 
     @include e(switch) {
+        width: 90%;
+        justify-content: space-between;
         @extend %settings-input;        
         @include flex(flex, row, $align: center);
+
+        @include mq(medium) {
+            width: 70%;
+        }
     }
 }
 

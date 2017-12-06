@@ -24,25 +24,62 @@ const closeModal = document.querySelector(".closeModal");
 ////// MEMBERS ////////
 ///////////////////////
 
+let members = [];
 
 $.ajax({
-    url: 'https://randomuser.me/api/?inc=name,email,picture,registered/?results=20',
+    url: 'https://randomuser.me/api/?results=4&inc=name,picture,email,registered',
     dataType: 'json',
-    success: function(data) {
-      console.log(data);
-    }
-  });
-        
+    error: function() {
+        console.error("Request to fetch users failed");
+    },
+    success: function(response) {
+        members = response.results;
 
+        const formatName = function(name) {
+            return name[0].toUpperCase() + name.slice(1);
+        };
 
+// render members
+        for (let i = 0; i < members.length; i++) {
+            const memberPicture = members[i].picture.thumbnail;
+            const memberFirstName = formatName(members[i].name.first);
+            const memberLastName = formatName(members[i].name.last);
+            const memberName = `${memberFirstName} ${memberLastName}`;
 
+            const { email, registered, picture, name } = members[i];
 
+            const membersEl = document.querySelector(".new-members");
+            const membersDiv = document.createElement('div');
+            membersEl.appendChild(membersDiv);
 
-        
+            const memberImgContainer = document.createElement('div');
+            membersDiv.appendChild(memberImgContainer);
 
+            const memberImg = document.createElement('img');
+            memberImg.src = memberPicture;
+            memberImgContainer.appendChild(memberImg);
 
+            const memberInfoContainer = document.createElement('div');
+            membersDiv.appendChild(memberInfoContainer);
 
+            const memberNameP = document.createElement('p');
+            memberInfoContainer.appendChild(memberNameP);
+            memberNameP.innerHTML = memberName;
 
+            const memberEmailP = document.createElement('p');
+            memberInfoContainer.appendChild(memberEmailP);
+            memberEmailP.innerHTML = email;
+
+            const memberRegContainer = document.createElement('div');
+            membersDiv.appendChild(memberRegContainer);
+
+            const memberReg = document.createElement('p');
+            memberRegContainer.appendChild(memberReg);
+            memberReg.innerHTML = new Date(registered).toLocaleDateString("en-US");
+        }  
+    },
+});
+    
 ///////////////////////
 /////// CHARTS ////////
 ///////////////////////
@@ -148,6 +185,8 @@ var donutChart = new Chart(mobileUserChart, {
         },
     }
 });
+
+
 
 
 ///////////////////////
