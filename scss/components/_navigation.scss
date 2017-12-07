@@ -24,8 +24,9 @@
         @include flex(flex, row, $align: center);
 
         li {
-            font-size: 14px;
+            font-size: em(14px);
         }
+
     }
     //nav list items
     @include e(item) {
@@ -35,12 +36,13 @@
     }
     //notification dot
     @include m(circle){
+        display: flex !important;
         border-radius: 50%;
         width: em(6px);
         height: em(6px);
         background-color: $pastel;
         display: inline-block;
-        margin-top: -20px;
+        margin-top: -15px;
         margin-left: -20px;
     }  
 }
@@ -54,22 +56,22 @@
         background-color: $secondary-color;
         width: 100%;
         margin: 0;
-        padding-top: 15px;
+        padding-top: em(15px);
         padding-left: 0px;
         @include flex(flex, row, $just: center);
 
         @include mq(medium) {
-            @include flex(flex, column, $just: baseline);
-            width: 60px; 
+            @include flex(flex, column, $just: center);
+            width: em(60px); 
         } 
     }
 
     //list items
     @include e(item-vertical) {
-        padding-left: 12px;
+        padding-left: em(12px);
 
         svg {
-            width: 45px;
+            width: em(45px);
         }
     }
 }

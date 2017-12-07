@@ -37,8 +37,9 @@
 
     .verification {
         width: 95%;
-        height: 125px;
-        margin: 20px auto 0 auto;
+        height: em(125px);
+        margin: 0 auto;
+        margin-top: em(20px);
         background-color: $white;
         @include flex(flex, row, $align: center);
 
@@ -47,17 +48,17 @@
         }
 
         @include mq(large) {
-            max-width: 1000px;
+            max-width: em(1000px);
         }
 
         @include m(img) {
-            width: 100px;
-            margin: 0 10px 0 20px;
+            width: em(100px);
+            margin: 0 em(10px) 0 em(20px);
         }
 
         @include e(content) {
             width: 100%;
-            @include flex(flex, wrap, $wrap: wrap);
+            @include flex(flex, $wrap: wrap);
         
             p {
                 width: 80%;
@@ -66,16 +67,17 @@
     
             h1 {
                 width: 90%;
-                font-size: 25px;
-                margin: 0 0 10px 0;
+                font-size: em(25px);
+                margin: 0 0 em(10px) 0;
             }
         }        
     }
 
     .message {
         width: 95%;
-        height: 125px;
-        margin: 20 auto 0 auto;
+        height: em(125px);
+        margin: 0 auto;
+        margin-top: em(20px);
         background-color: $white;
         @include flex(flex, row, $align: center);
 
@@ -84,12 +86,12 @@
         }
 
         @include mq(large) {
-            max-width: 1000px;
+            max-width: em(1000px);
         }
 
         @include m(img) {
-            width: 80px;
-            margin: 0 20px 0 30px;
+            width: em(80px);
+            margin: 0 em(20px) 0 em(30px);
         }
 
         @include e(content) {
@@ -102,8 +104,8 @@
         
             h1 {
                 width: 90%;
-                margin: 0 0 10px 0;
-                font-size: 25px;
+                margin: 0 0 em(10px) 0;
+                font-size: em(25px);
             }
         }
     }   

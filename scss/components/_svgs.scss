@@ -2,7 +2,7 @@
  // SVG images for vertical nav bad
     @include e(icon) {
         fill: lightgrey;
-        height: 45px;
+        height: em(45px);
         
         &:hover {
             fill: $white;

@@ -17,9 +17,10 @@
 
 .nav-vertical {
     @include flex(flex, row, $just: center);
-    background-color: $secondary-color;  
+    background-color: $secondary-color; 
+    height: 100%; 
     @include mq(medium) {
-        @include flex(flex, column, $just: baseline);
+        @include flex(flex, column, $just: flex-start);
     }
 }
 
@@ -28,7 +29,7 @@
 .grid__col--5 ,
 .grid__col--6 ,
 .grid__col--7 {
-    padding: 10px 25px 50px 25px;
+    padding: em(10px) em(25px) em(50px) em(25px);
     border-top: solid 1px lightgrey;
 
     @include mq(medium) {
@@ -46,9 +47,9 @@
 }
 
 .dashboard {
-    padding: 0 20px;
+    padding: 0 em(20px);
     background-color: rgba(101, 97, 158,0.43);
-    width: 145px;
+    width: em(145px);
 
     @include mq(medium) {
         border-right: 1px solid lightgrey;
@@ -56,7 +57,7 @@
     }
     
     h2 {
-        font-size: 20px;
+        font-size: em(20px);
         font-weight: 400;
         color: $white;
 
@@ -68,7 +69,7 @@
 
 .dashboard-container {
     @include mq(medium) {
-        width: 710px;
+        width: em(710px);
     }
 
     @include mq(large) {
@@ -86,10 +87,10 @@
     }
 
     &-card {
-        background-color: #ebe9e991;
+        background-color:#f4f2f2;
         border: 1px solid lightgrey;
-        margin: 20px auto;
-        border-radius: 5px;
+        margin: em(20px) auto;
+        border-radius: em(5px);
         @include flex(flex, row, $just: center, $align: center);
 
         
@@ -98,7 +99,7 @@
         }
 
         @include mq(medium) {
-            margin: 10px 15px 0 0;
+            margin: em(10px) em(15px) 0 0;
             width: 33%;
 
             &:first-of-type {
@@ -111,27 +112,27 @@
 
             @include mq(large) {
                 width: 50%;
-                margin: 10px 20px 0 20px;
+                margin: em(10px) em(20px) 0 em(20px);
             }
         }
         
         h4 {
             color: $primary-color;
             margin-bottom: 0px;
-            font-size: 18px;
+            font-size: em(18px);
         }
 
         p {
             color: #616161;
-            font-size: 45px;
+            font-size: em(45px);
             font-weight: $font-wt-thin;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: em(20px);
         }
     }
 
     @include e(stats) {
-        margin-left: 20px;
+        margin-left: em(20px);
     }
 }
 
@@ -140,8 +141,8 @@
 .members {
     @include flex(flex, row, $align: center);
     color: #616161;
-    font-size: 14px;
-    padding: 20px 0;
+    font-size: em(14px);
+    padding: em(20px) 0;
     border-bottom: 1px solid lightgrey;
 
     &:last-of-type {
@@ -151,12 +152,12 @@
     
     @include m(img) {
         border-radius: 50%;
-        width: 40px;
+        width: em(40px);
     }
 
     @include e(info) {
         @include flex(flex, column, $flex: 2);
-        padding-left: 10px;
+        padding-left: em(10px);
 
         p {
             margin: 0;
@@ -164,20 +165,20 @@
     }
 
     @include e(name){
-        font-size: 13px;
+        font-size: em(13px);
     }
 
     @include e(email) {
         color: $primary-color;
-        font-size: 13px;
+        font-size: em(13px);
     }
 
     @include e(reg) {
-        font-size: 12px;
+        font-size: em(12px);
     }
 
     @include e(time) {
-        font-size: 12px;
+        font-size: em(12px);
     }
 
    

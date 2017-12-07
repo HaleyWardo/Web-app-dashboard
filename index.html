@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,55 +32,58 @@
 
 
 <!-- TOP NAVIGATION -->
-    <nav>
-        <header>
+
+    <header>
+        <nav>
             <div class="nav-container">
-                    <h1 class="nav__heading">Your<span>App</span>&trade;</h1>  
+                <h1 class="nav__heading">Your<span>App</span>&trade;</h1>  
                 <ul class="nav__list">
                     <li class="nav__item"><img class="img--notification" src="icons/icon-bell.svg" alt="notification"></li>
-                    <span class="nav--circle"></span>
+                    <li><span class="nav--circle"></span></li>
                     <li class="nav__item"><img class="nav__item img--avatar" src="images/profile-image.jpg" alt="user profile image"></li>
                     <li class="nav__item">Haley Ward</li>               
                 </ul>
             </div>
-        </header>
-    </nav>
+        </nav>
+    </header>
 
 <!-- VERTICAL NAVIGATION -->
         <div class="main-container">
             <div class="grid__row">
-                <ul class="nav-vertical"> 
-            
-                    <li class="nav__item-vertical">
-                        <svg class="nav__icon" transform="scale(.7)">
-                            <use xlink:href="#dashboard"></use>
-                        </svg>
-                    </li>
+                <nav>
+                    <ul class="nav-vertical"> 
+                
+                        <li class="nav__item-vertical">
+                            <svg class="nav__icon" style="transform:scale(.7)">
+                                <use xlink:href="#dashboard"></use>
+                            </svg>
+                        </li>
 
-                    <li class="nav__item-vertical">
-                        <svg class="nav__icon" transform="scale(.7)">
-                            <use xlink:href="#members-icon"></use>
-                        </svg>
-                    </li>
+                        <li class="nav__item-vertical">
+                            <svg class="nav__icon" style="transform:scale(.7)">
+                                <use xlink:href="#members-icon"></use>
+                            </svg>
+                        </li>
 
-                    <li class="nav__item-vertical">
-                        <svg class="nav__icon" transform="scale(.7)">
-                            <use xlink:href="#visits"></use>
-                        </svg>
-                    </li>
+                        <li class="nav__item-vertical">
+                            <svg class="nav__icon" style="transform:scale(.7)">
+                                <use xlink:href="#visits"></use>
+                            </svg>
+                        </li>
 
-                    <li class="nav__item-vertical">  
-                        <svg class="nav__icon" transform="scale(.7)">
-                            <use xlink:href="#settings"></use>
-                        </svg>
-                    </li>
+                        <li class="nav__item-vertical">  
+                            <svg class="nav__icon" style="transform:scale(.7)">
+                                <use xlink:href="#settings"></use>
+                            </svg>
+                        </li>
 
-                </ul>          
+                    </ul>
+                </nav>          
             </div>
        
  
 <!-- MAIN DASHBOARD CONTAINER -->
-            <div class="grid__col--1 dashboard-container">
+            <main class="grid__col--1 dashboard-container">
 
                 <div class="grid__row">
                     <!-- Dashboard -->
@@ -115,12 +118,12 @@
                         <div class="traffic-bar"> 
                             <p class="pHeading">TRAFFIC</p>
 
-                            <ul class="chart-filter">
+                            <div class="chart-filter">
                                 <button id="hourly">Hourly</button>
                                 <button id="daily">Daily</button>
-                                <button id="weekly">Weekly</button>
+                                <button class="focus" id="weekly">Weekly</button>
                                 <button id="monthly">Monthly</button>
-                            </ul>
+                            </div>
                         </div>
                         
                         <!-- Line chart -->
@@ -358,7 +361,7 @@
                 <div class="overlay__notification">
                     <div class="verification">
                         <div>
-                            <img class="verification--img" src="images/verification.png">
+                            <img class="verification--img" src="images/verification.png" alt="verification icon">
                         </div>
                         <div class="verification__content">
                             <h1>Verification</h1>
@@ -369,7 +372,7 @@
 
                     <div class="message">
                         <div>
-                            <img class="message--img" src="images/message.png">
+                            <img class="message--img" src="images/message.png" alt="message icon">
                         </div>
                         <div class="message__content">
                             <h1>Messages</h1>
@@ -387,12 +390,11 @@
                         <p class="modal-message">Message sent</p>
                     </div>
                </div>
-            </div>
+            </main>
         </div>
 
     <script src="js/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js" type="text/javascript"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>    
     <script src="js/app.js"></script>
 </body>
 </html>
-</DOCTYPE>

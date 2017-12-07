@@ -1,18 +1,18 @@
 .img {
     @include m(avatar) {
         width: em(35px);
-        margin-left: 25px;
+        margin-left: em(25px);
         border-radius: 50%;
     }
 
     @include m(notification) {
-        padding-right: 20px;
+        padding-right: em(20px);
         border-right: solid 1px $secondary-color;
         cursor: pointer;
     }
 
     @include m(social) {
-        padding: 15px;
+        padding: em(15px);
         background-color: $primary-color;
         border-radius: 50%;
     }

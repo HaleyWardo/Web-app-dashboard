@@ -238,15 +238,14 @@ sendButton.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
     overlay.style = "display: none";
 });
-    
+
+
 ///////////////////////
 /////// CHARTS ////////
 ///////////////////////
 
 // LINE CHART
 var trafficChart = document.getElementById("lineChart");
-
-
 var lineChart = new Chart(trafficChart, {
     type: 'line',
     data: {
@@ -289,20 +288,21 @@ const chartFilter = document.querySelector(".chart-filter");
 chartFilter.addEventListener("click", (e) => {
 
     for (let i = 0; i < chartFilter.children.length; i++) {
-        chartFilter.children[i].classList.remove('selected');
+        chartFilter.children[i].classList.remove('focus');
       }
-      if (e.target.innerText.toLowerCase() === 'monthly') {
-        e.target.classList.add('selected');
+      if (e.target.innerText.toUpperCase() === 'HOURLY') {
+        e.target.classList.add('focus');
       }
-      if (e.target.innerText.toLowerCase() === 'weekly') {
-        e.target.classList.add('selected');
+      if (e.target.innerText.toUpperCase() === 'DAILY') {
+        e.target.classList.add('focus');
       }
-      if (e.target.innerText.toLowerCase() === 'daily') {
-        e.target.classList.add('selected');
+      if (e.target.innerText.toUpperCase() === 'WEEKLY') {
+        e.target.classList.add('focus');
       }
-      if (e.target.innerText.toLowerCase() === 'hourly') {
-        e.target.classList.add('selected');
+      if (e.target.innerText.toUpperCase() === 'MONTHLY') {
+        e.target.classList.add('focus');
       }
+     
 
     if (e.target.tagName == "BUTTON") {
         if (e.target.id === 'hourly') {

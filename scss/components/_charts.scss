@@ -1,5 +1,6 @@
 .traffic-bar {
-    margin: 0px 20px;
+    margin: em(15px) em(20px);
+    height: em(30px);
 
     @include mq(medium) {
         display: flex;
@@ -9,7 +10,7 @@
 }
 
 .chart-filter {
-    .selected {
+    .focus {
         background-color: $pastel; 
         color: $white; 
     }
@@ -25,8 +26,6 @@
         @extend %crt-btn;
     }
 }
-
-
 
 
 .daily-traffic, 
