@@ -52,7 +52,6 @@ $.ajax({
     },
     success: function(response) {
         members = response.results;
-        allMembers = members
 
         const formatName = function(name) {
             return name[0].toUpperCase() + name.slice(1);
@@ -135,29 +134,15 @@ $.ajax({
             const chevron = document.createElement('div') 
                 memberContainer.appendChild(chevron);
                 chevron.className = "chevron";
-            
+           
+            // AUTOCOMPLETE FEATURE
+            const datalist = document.querySelector('#searchableMembers');
+            const datalistOptions = document.createElement('option');
+            datalist.appendChild(datalistOptions);
+            datalistOptions.innerHTML = memberName;                
         }     
     },
 });
-
-///////////////////////
-//AUTOCOMPLETE FEATURE/
-///////////////////////
-
-let results;
-
-function autoComplete(value) {
-    const membersReturn = [];
-
-    for (let i = 0 ; i < allMembers.length; i++) {
-        if (value === allMembers[i].slice(0, value.length)) {
-            membersReturn.push(people[i]);
-        }
-    }
-    return membersReturn;
-}
-
-
 
 
 ///////////////////////
@@ -263,9 +248,9 @@ var trafficChart = document.getElementById("lineChart");
 var lineChart = new Chart(trafficChart, {
     type: 'line',
     data: {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+        labels: ['week-1', 'week-2', 'week-3', 'week-4', 'week-5', 'week-6', 'week-7'],
         datasets: [{ 
-            data: [250,1250,1000,1500,2000,1500,1750,1250,2250,1750,2250],
+            data: [15, 1, 7, 18, 14, 3, 8],
             borderColor: "#65619E",
             borderWidth: 1,
             backgroundColor: "rgba(101, 97, 158, 0.15)",
@@ -286,9 +271,9 @@ var lineChart = new Chart(trafficChart, {
         scales: {
             yAxes: [{
                 ticks: {
-                    max: 3000,
+                    max: 20,
                     min: 0,
-                    stepSize: 500,
+                    stepSize: 0,
                 },
                 gridLines: {
                     offsetGridLines: true,
@@ -297,6 +282,173 @@ var lineChart = new Chart(trafficChart, {
         }
     }
 });
+
+const chartFilter = document.querySelector(".chart-filter");
+chartFilter.addEventListener("click", (e) => {
+    if (e.target.tagName == "LI") {
+        if (e.target.id === 'hourly') {
+            new Chart(trafficChart, {
+                type: 'line',
+                data: {
+                    labels: ['12:00AM', '1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM'],
+                    datasets: [{ 
+                        data: [500, 450, 800, 1025, 1500, 1900, 1600, 1203, 1005,],
+                        borderColor: "#65619E",
+                        borderWidth: 1,
+                        backgroundColor: "rgba(101, 97, 158, 0.15)",
+                        pointBackgroundColor: "white",
+                        pointBorderWidth: 2,
+                        fill: 'origin',
+                        radius: 6,
+                        tension: 0,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                max: 2000,
+                                min: 0,
+                                stepSize: 250,
+                            },
+                            gridLines: {
+                                offsetGridLines: true,
+                            }
+                        }],
+                    }
+                }
+            });
+        }
+        
+        if (e.target.id === 'daily') {
+            new Chart(trafficChart, {
+                type: 'line',
+                data: {
+                    labels: ['M', 'T', 'W', 'TH', 'F', 'S', 'SU'],
+                    datasets: [{ 
+                        data: [7, 2, 4, 0, 9, 5, 3],
+                        borderColor: "#65619E",
+                        borderWidth: 1,
+                        backgroundColor: "rgba(101, 97, 158, 0.15)",
+                        pointBackgroundColor: "white",
+                        pointBorderWidth: 2,
+                        fill: 'origin',
+                        radius: 6,
+                        tension: 0,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                max: 10,
+                                min: 0,
+                                stepSize: 0,
+                            },
+                            gridLines: {
+                                offsetGridLines: true,
+                            }
+                        }],
+                    }
+                }
+            });
+        }
+    }
+
+    if (e.target.id === 'weekly') {
+        new Chart(trafficChart, {
+            type: 'line',
+            data: {
+                labels: ['week-1', 'week-2', 'week-3', 'week-4', 'week-5', 'week-6', 'week-7'],
+                datasets: [{ 
+                    data: [15, 1, 7, 18, 14, 3, 8],
+                    borderColor: "#65619E",
+                    borderWidth: 1,
+                    backgroundColor: "rgba(101, 97, 158, 0.15)",
+                    pointBackgroundColor: "white",
+                    pointBorderWidth: 2,
+                    fill: 'origin',
+                    radius: 6,
+                    tension: 0,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            max: 20,
+                            min: 0,
+                            stepSize: 0,
+                        },
+                        gridLines: {
+                            offsetGridLines: true,
+                        }
+                    }],
+                }
+            }
+        });
+    }
+
+    if (e.target.id === 'monthly') {
+        new Chart(trafficChart, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep'],
+                datasets: [{ 
+                    data: [25, 156, 198, 120, 80, 55, 100, 120, 145],
+                    borderColor: "#65619E",
+                    borderWidth: 1,
+                    backgroundColor: "rgba(101, 97, 158, 0.15)",
+                    pointBackgroundColor: "white",
+                    pointBorderWidth: 2,
+                    fill: 'origin',
+                    radius: 6,
+                    tension: 0,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            max: 200,
+                            min: 0,
+                            stepSize: 25,
+                        },
+                        gridLines: {
+                            offsetGridLines: true,
+                        }
+                    }],
+                }
+            }
+        });
+    }
+});
+
+
 
 // BAR CHART
 var dailyTrafficChart = document.getElementById("barChart")
