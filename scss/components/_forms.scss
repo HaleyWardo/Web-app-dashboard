@@ -54,7 +54,7 @@
         @include flex(flex, row, $align: center);
 
         @include mq(medium) {
-            width: 70%;
+            width: 85%;
         }
     }
 

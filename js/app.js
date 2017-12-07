@@ -15,10 +15,14 @@ const messageDiv = document.querySelector(".message");
 const messageClose = document.querySelector(".message__close");
 
 const sendButton = document.querySelector(".btn--message-send");
+const userSearch = document.querySelector(".user__search");
+const userMessage = document.querySelector(".user__message");
 const overlay = document.querySelector("#overlay");
 const modalMessage = document.querySelector(".modal-message");
 
 const closeModal = document.querySelector(".closeModal");
+
+let allMembers = [];
 
 ///////////////////////
 ////// MEMBERS ////////
@@ -48,6 +52,7 @@ $.ajax({
     },
     success: function(response) {
         members = response.results;
+        allMembers = members
 
         const formatName = function(name) {
             return name[0].toUpperCase() + name.slice(1);
@@ -135,11 +140,29 @@ $.ajax({
     },
 });
 
+///////////////////////
+//AUTOCOMPLETE FEATURE/
+///////////////////////
+
+let results;
+
+function autoComplete(value) {
+    const membersReturn = [];
+
+    for (let i = 0 ; i < allMembers.length; i++) {
+        if (value === allMembers[i].slice(0, value.length)) {
+            membersReturn.push(people[i]);
+        }
+    }
+    return membersReturn;
+}
+
+
+
 
 ///////////////////////
 /// EVENT LISTENERS ///
 ///////////////////////
-
 
 /////////////////////////////
 //ALERT MODAL EVENT LISTENER/
@@ -210,8 +233,6 @@ function removeOverlay() {
 
 //When user clicks send button a modal pops up
 sendButton.addEventListener("click", () => {
-    const userSearch = document.querySelector(".user__search");
-    const userMessage = document.querySelector(".user__message");
 
     event.preventDefault();
     
@@ -257,6 +278,8 @@ var lineChart = new Chart(trafficChart, {
         ]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: false
         },
@@ -273,7 +296,7 @@ var lineChart = new Chart(trafficChart, {
             }],
         }
     }
-  });
+});
 
 // BAR CHART
 var dailyTrafficChart = document.getElementById("barChart")
@@ -307,6 +330,8 @@ var barChart = new Chart(context, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: false
         },
@@ -345,6 +370,8 @@ var donutChart = new Chart(mobileUserChart, {
         }],     
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: true,
             position: 'right',

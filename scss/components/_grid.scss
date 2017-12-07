@@ -98,8 +98,8 @@
         }
 
         @include mq(medium) {
-            margin: 10px 20px 0 20px;
-            width: 50%;
+            margin: 10px 15px 0 0;
+            width: 33%;
 
             &:first-of-type {
                 margin-left: 0;
@@ -107,6 +107,11 @@
 
             &:last-of-type {
                 margin-right: 0;
+            }
+
+            @include mq(large) {
+                width: 50%;
+                margin: 10px 20px 0 20px;
             }
         }
         

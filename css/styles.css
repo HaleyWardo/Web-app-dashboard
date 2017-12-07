@@ -456,7 +456,10 @@ ul {
   border-radius: 50%;
   width: 0.375em;
   height: 0.375em;
-  background-color: #75D799; }
+  background-color: #75D799;
+  display: inline-block;
+  margin-top: -20px;
+  margin-left: -20px; }
 
 .nav-vertical {
   background-color: #564483;
@@ -488,7 +491,6 @@ ul {
 
 body {
   font-family: "Roboto", sans-serif;
-  max-width: 1024px;
   min-width: 380px;
   margin: 0 auto; }
 
@@ -526,6 +528,7 @@ body {
 
 .img--avatar {
   width: 2.1875em;
+  margin-left: 25px;
   border-radius: 50%; }
 .img--notification {
   padding-right: 20px;
@@ -598,7 +601,7 @@ body {
   align-items: center; }
   @media (min-width: 768px) {
     .settings__switch {
-      width: 70%; } }
+      width: 85%; } }
 .settings p {
   font-size: 13px;
   color: #939ca0;
@@ -744,12 +747,17 @@ textarea::placeholder {
     margin-bottom: 0; }
   @media (min-width: 768px) {
     .social-card {
-      margin: 10px 20px 0 20px;
-      width: 50%; }
+      margin: 10px 15px 0 0;
+      width: 33%; }
       .social-card:first-of-type {
         margin-left: 0; }
       .social-card:last-of-type {
         margin-right: 0; } }
+  @media (min-width: 768px) and (min-width: 1100px) {
+    .social-card {
+      width: 50%;
+      margin: 10px 20px 0 20px; } }
+
   .social-card h4 {
     color: #65619E;
     margin-bottom: 0px;

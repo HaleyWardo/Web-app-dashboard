@@ -1,6 +1,7 @@
 .img {
     @include m(avatar) {
         width: em(35px);
+        margin-left: 25px;
         border-radius: 50%;
     }
 
