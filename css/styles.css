@@ -405,6 +405,18 @@ ul {
   font-size: 0.8125em;
   font-weight: 700; }
 
+.chart-filter button {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 5px;
+  border-radius: 20px;
+  padding: 5px 15px;
+  transition: .5s;
+  cursor: pointer;
+  border: none;
+  color: #939ca0;
+  background-color: #FFF; }
+
 .user__search, .user__message, .settings__timezone {
   border-style: none;
   border: 1px solid lightgray;
@@ -911,21 +923,13 @@ textarea::placeholder {
 
 .chart-filter {
   color: #939ca0; }
+  .chart-filter .selected {
+    background-color: #75D799;
+    color: #FFF; }
   @media (min-width: 768px) {
     .chart-filter {
       display: flex;
       flex-direction: row; } }
-  .chart-filter li {
-    font-size: 13px;
-    font-weight: 700;
-    margin: 0 5px;
-    border-radius: 20px;
-    padding: 7px 15px;
-    transition: .5s; }
-    .chart-filter li:hover {
-      background-color: #75D799;
-      color: #FFF;
-      cursor: pointer; }
 
 .daily-traffic,
 .mobile-users {

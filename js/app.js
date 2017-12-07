@@ -245,6 +245,8 @@ closeModal.addEventListener("click", () => {
 
 // LINE CHART
 var trafficChart = document.getElementById("lineChart");
+
+
 var lineChart = new Chart(trafficChart, {
     type: 'line',
     data: {
@@ -285,7 +287,24 @@ var lineChart = new Chart(trafficChart, {
 
 const chartFilter = document.querySelector(".chart-filter");
 chartFilter.addEventListener("click", (e) => {
-    if (e.target.tagName == "LI") {
+
+    for (let i = 0; i < chartFilter.children.length; i++) {
+        chartFilter.children[i].classList.remove('selected');
+      }
+      if (e.target.innerText.toLowerCase() === 'monthly') {
+        e.target.classList.add('selected');
+      }
+      if (e.target.innerText.toLowerCase() === 'weekly') {
+        e.target.classList.add('selected');
+      }
+      if (e.target.innerText.toLowerCase() === 'daily') {
+        e.target.classList.add('selected');
+      }
+      if (e.target.innerText.toLowerCase() === 'hourly') {
+        e.target.classList.add('selected');
+      }
+
+    if (e.target.tagName == "BUTTON") {
         if (e.target.id === 'hourly') {
             new Chart(trafficChart, {
                 type: 'line',

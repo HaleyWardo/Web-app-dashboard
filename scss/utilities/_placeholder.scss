@@ -39,6 +39,20 @@
     font-weight: $font-wt-bold;
 }
 
+//Chart buttons
+%crt-btn {
+    font-size: 13px;
+    font-weight: $font-wt-bold;
+    margin: 0 5px;
+    border-radius: 20px;
+    padding: 5px 15px;
+    transition: .5s;
+    cursor: pointer;
+    border: none;
+    color: #939ca0;
+    background-color: $white;
+}
+
 //Input
 %input {
     @extend %br;

@@ -9,6 +9,11 @@
 }
 
 .chart-filter {
+    .selected {
+        background-color: $pastel; 
+        color: $white; 
+    }
+
     color: #939ca0;
 
     @include mq(medium) {
@@ -16,21 +21,13 @@
         flex-direction: row;
     }
     
-    li {
-        font-size: 13px;
-        font-weight: $font-wt-bold;
-        margin: 0 5px;
-        border-radius: 20px;
-        padding: 7px 15px;
-        transition: .5s;
-
-        &:hover {
-            background-color: $pastel; 
-            color: $white;
-            cursor: pointer;
-        }
+    button {
+        @extend %crt-btn;
     }
 }
+
+
+
 
 .daily-traffic, 
 .mobile-users {
