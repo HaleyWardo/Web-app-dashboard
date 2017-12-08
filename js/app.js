@@ -146,10 +146,8 @@ $.ajax({
             const membersDiv = createChildElement(membersEl, 'div', 'members');
             const memberImgContainer = createChildElement(membersDiv, 'div');
 
-            const memberImg = document.createElement('img');
+            const memberImg = createChildElement(memberImgContainer, 'img', 'members--img');
             memberImg.src = memberPicture;
-            memberImgContainer.appendChild(memberImg);
-            memberImg.className = 'members--img';
 
             const memberInfoContainer = createChildElement(membersDiv, 'div', 'members__info');
             createChildElement(memberInfoContainer, 'p', 'members__name', memberName);
@@ -164,10 +162,8 @@ $.ajax({
 
             const memberActImgContainer = createChildElement(memberContainer, 'div');
 
-            const memberActImg = document.createElement('img');
+            const memberActImg = createChildElement(memberActImgContainer, 'img', 'members--img');
             memberActImg.src = memberPicture;
-            memberActImgContainer.appendChild(memberActImg);
-            memberActImg.className = 'members--img';
 
             const memberActInfoContainer = createChildElement(memberContainer, 'div', 'members__info');
             createChildElement(memberActInfoContainer, 'p', 'members__name', `${memberName} ${membersActivity.pop()}`);
@@ -194,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertUl = createChildElement(alert, 'ul');
     createChildElement(alertUl, 'span', 'alert-span', 'Alert');
     createChildElement(alertUl, 'li', null, 'Nullam quis risus eget urna mollis ornare cel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.')
+    
     const alertCloseLi = createChildElement(alertUl, 'li', 'alert-close', 'x');
 
     //When user clicks 'X' alert message closes
@@ -347,9 +344,9 @@ chartFilter.addEventListener('click', (e) => {
 });
 
 // BAR CHART
-var dailyTrafficChart = document.getElementById('barChart')
-var context = dailyTrafficChart.getContext('2d');
-new Chart(context, {
+const dailyTrafficChart = document.getElementById('barChart')
+const context = dailyTrafficChart.getContext('2d');
+new Chart(dailyTrafficChart.getContext('2d'), {
     type: 'bar',
     data: {
         labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -394,7 +391,7 @@ new Chart(context, {
 });
 
 //DONUT CHART
-var mobileUserChart = document.getElementById('donutChart');
+const mobileUserChart = document.getElementById('donutChart');
 new Chart(mobileUserChart, {
     type: 'doughnut',
     data: {
