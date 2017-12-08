@@ -29,6 +29,9 @@ const closeModal = document.querySelector(".closeModal");
 const checkboxes = document.querySelectorAll('.checkbox');
 const timeZoneOptions = document.querySelector('.settings__timezone');
 
+///////////////////////
+///BUILDER FUNCTIONS///
+///////////////////////
 /**
  * Creates a new line chart with the given chart element
  * @param {object} chartElement 
@@ -70,6 +73,28 @@ const createLineChart = (chartElement, labels, data, yAxis) => {
             }
         }
     });
+};
+
+/**
+ * Creates a child element and appends it to a parent element. Class name and innerHTML are optional.
+ * @param {object} parentElement 
+ * @param {string} tagName 
+ * @param {string} className 
+ * @param {string} innerHTML 
+ */
+const createChildElement = (parentElement, tagName, className, innerHTML) => {
+    const createdElement = document.createElement(tagName);
+    parentElement.appendChild(createdElement);
+
+    if (className) {
+        createdElement.className = className;
+    }
+
+    if (innerHTML) {
+        createdElement.innerHTML = innerHTML;
+    }
+
+    return createdElement;
 };
 
 ///////////////////////
@@ -117,77 +142,41 @@ $.ajax({
 
             //NEW MEMBERS
             const membersEl = document.querySelector(".new-members");
-            const membersDiv = document.createElement('div');
-            membersEl.appendChild(membersDiv);
-            membersDiv.className = "members";
 
-            const memberImgContainer = document.createElement('div');
-            membersDiv.appendChild(memberImgContainer);
+            const membersDiv = createChildElement(membersEl, 'div', 'members');
+            const memberImgContainer = createChildElement(membersDiv, 'div');
 
             const memberImg = document.createElement('img');
             memberImg.src = memberPicture;
             memberImgContainer.appendChild(memberImg);
             memberImg.className = "members--img";
 
-            const memberInfoContainer = document.createElement('div');
-            membersDiv.appendChild(memberInfoContainer);
-            memberInfoContainer.className = "members__info";
+            const memberInfoContainer = createChildElement(membersDiv, 'div', 'members__info');
+            createChildElement(memberInfoContainer, 'p', 'members__name', memberName);
+            createChildElement(memberInfoContainer, 'p', 'members__email', email);
 
-            const memberNameP = document.createElement('p');
-            memberInfoContainer.appendChild(memberNameP);
-            memberNameP.innerHTML = memberName;
-            memberNameP.className = "members__name";
-
-            const memberEmailP = document.createElement('p');
-            memberInfoContainer.appendChild(memberEmailP);
-            memberEmailP.innerHTML = email;
-            memberEmailP.className = "members__email";
-
-            const memberRegContainer = document.createElement('div');
-            membersDiv.appendChild(memberRegContainer);
-            memberRegContainer.className = "members__reg";
-
-            const memberReg = document.createElement('p');
-            memberRegContainer.appendChild(memberReg);
-            memberReg.innerHTML = new Date(registered).toLocaleDateString("en-US");
+            const memberRegContainer = createChildElement(membersDiv, 'div', 'members__reg');
+            createChildElement(memberRegContainer, 'p', null, new Date(registered).toLocaleDateString("en-US"));
             
             //RECENT ACTIVITY
             const memberActContainer = document.querySelector(".recent-activity");
-            const memberContainer = document.createElement('div');
-            memberActContainer.appendChild(memberContainer);
-            memberContainer.className = "members";
+            const memberContainer = createChildElement(memberActContainer, 'div', 'members');
 
-            const memberActImgContainer = document.createElement('div');
-            memberContainer.appendChild(memberActImgContainer);
+            const memberActImgContainer = createChildElement(memberContainer, 'div');
 
             const memberActImg = document.createElement('img');
             memberActImg.src = memberPicture;
             memberActImgContainer.appendChild(memberActImg);
             memberActImg.className = "members--img";
 
-            const memberActInfoContainer = document.createElement('div');
-            memberContainer.appendChild(memberActInfoContainer);
-            memberActInfoContainer.className = "members__info";
-
-            const memberActNameP = document.createElement('p');
-            memberActInfoContainer.appendChild(memberActNameP);
-            memberActNameP.innerHTML = `${memberName} ${membersActivity.pop()}`;
-            memberActNameP.className = "members__name";
-
-            const memberActTimeP = document.createElement('p');
-            memberActInfoContainer.appendChild(memberActTimeP);
-            memberActTimeP.className = "members__time";  
-            memberActTimeP.innerHTML = memberTime.pop();   
-            
-            const chevron = document.createElement('div');
-            memberContainer.appendChild(chevron);
-            chevron.className = "chevron";
+            const memberActInfoContainer = createChildElement(memberContainer, 'div', 'members__info');
+            createChildElement(memberActInfoContainer, 'p', 'members__name', `${memberName} ${membersActivity.pop()}`);
+            createChildElement(memberActInfoContainer, 'p', 'members__time', memberTime.pop());
+            createChildElement(memberContainer, 'div', 'chevron');
            
             // AUTOCOMPLETE FEATURE
             const datalist = document.querySelector('#searchableMembers');
-            const datalistOptions = document.createElement('option');
-            datalist.appendChild(datalistOptions);
-            datalistOptions.innerHTML = memberName;                
+            createChildElement(datalist, 'option', null, memberName);               
         }     
     },
 });
@@ -318,15 +307,19 @@ chartFilter.addEventListener("click", (e) => {
     for (let i = 0; i < chartFilter.children.length; i++) {
         chartFilter.children[i].classList.remove('focus');
       }
+
       if (e.target.innerText.toUpperCase() === 'HOURLY') {
         e.target.classList.add('focus');
       }
+
       if (e.target.innerText.toUpperCase() === 'DAILY') {
         e.target.classList.add('focus');
       }
+
       if (e.target.innerText.toUpperCase() === 'WEEKLY') {
         e.target.classList.add('focus');
       }
+
       if (e.target.innerText.toUpperCase() === 'MONTHLY') {
         e.target.classList.add('focus');
       }
