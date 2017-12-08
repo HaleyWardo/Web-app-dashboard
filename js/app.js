@@ -2,29 +2,29 @@
 ///// VARIABLES ///////
 ///////////////////////
 
-const alert = document.querySelector(".alert");
+const alert = document.querySelector('.alert');
 
-const notificationCircle = document.querySelector(".nav--circle");
-const notification = document.querySelector(".img--notification");
-const notificationOverlay = document.querySelector(".overlay__notification");
+const notificationCircle = document.querySelector('.nav--circle');
+const notification = document.querySelector('.img--notification');
+const notificationOverlay = document.querySelector('.overlay__notification');
 
-const verificationDiv = document.querySelector(".verification");
-const verificationClose = document.querySelector(".verification__close");
+const verificationDiv = document.querySelector('.verification');
+const verificationClose = document.querySelector('.verification__close');
 
-const messageDiv = document.querySelector(".message");
-const messageClose = document.querySelector(".message__close");
+const messageDiv = document.querySelector('.message');
+const messageClose = document.querySelector('.message__close');
 
-const sendButton = document.querySelector(".btn--message-send");
+const sendButton = document.querySelector('.btn--message-send');
 const saveButton = document.querySelector('.btn--settings-save');
 const emailSwitch = document.querySelector('.email');
 const profileSwitch = document.querySelector('.profile');
 
-const userSearch = document.querySelector(".user__search");
-const userMessage = document.querySelector(".user__message");
-const overlay = document.querySelector("#overlay");
-const modalMessage = document.querySelector(".modal-message");
+const userSearch = document.querySelector('.user__search');
+const userMessage = document.querySelector('.user__message');
+const overlay = document.querySelector('#overlay');
+const modalMessage = document.querySelector('.modal-message');
 
-const closeModal = document.querySelector(".closeModal");
+const closeModal = document.querySelector('.closeModal');
 
 const checkboxes = document.querySelectorAll('.checkbox');
 const timeZoneOptions = document.querySelector('.settings__timezone');
@@ -46,10 +46,10 @@ const createLineChart = (chartElement, labels, data, yAxis) => {
             labels: labels,
             datasets: [{ 
                 data: data,
-                borderColor: "#65619E",
+                borderColor: '#65619E',
                 borderWidth: 1,
-                backgroundColor: "rgba(101, 97, 158, 0.15)",
-                pointBackgroundColor: "white",
+                backgroundColor: 'rgba(101, 97, 158, 0.15)',
+                pointBackgroundColor: 'white',
                 pointBorderWidth: 2,
                 fill: 'origin',
                 radius: 6,
@@ -105,24 +105,24 @@ let allMembers = [];
 let members = [];
 
 const membersActivity = [
-    "posted YourApp's SEO Tips",
-    "commented on Facebook's Changes for 2016",
-    "liked the post Facebook's Changes for 2016",
-    "commented on YourApp's SEO Tips",
+    'posted YourApp\'s SEO Tips',
+    'commented on Facebook\'s Changes for 2016',
+    'liked the post Facebook\'s Changes for 2016',
+    'commented on YourApp\'s SEO Tips',
 ];
 
 const memberTime = [
-    "1 day ago",
-    "5 hours ago",
-    "5 hours ago",
-    "4 hours ago",
+    '1 day ago',
+    '5 hours ago',
+    '5 hours ago',
+    '4 hours ago',
 ];
 
 $.ajax({
     url: 'https://randomuser.me/api/?results=4&inc=name,picture,email,registered',
     dataType: 'json',
     error: function() {
-        console.error("Request to fetch users failed");
+        console.error('Request to fetch users failed');
     },
     success: function(response) {
         members = response.results;
@@ -141,7 +141,7 @@ $.ajax({
             const memberName = `${memberFirstName} ${memberLastName}`;
 
             //NEW MEMBERS
-            const membersEl = document.querySelector(".new-members");
+            const membersEl = document.querySelector('.new-members');
 
             const membersDiv = createChildElement(membersEl, 'div', 'members');
             const memberImgContainer = createChildElement(membersDiv, 'div');
@@ -149,17 +149,17 @@ $.ajax({
             const memberImg = document.createElement('img');
             memberImg.src = memberPicture;
             memberImgContainer.appendChild(memberImg);
-            memberImg.className = "members--img";
+            memberImg.className = 'members--img';
 
             const memberInfoContainer = createChildElement(membersDiv, 'div', 'members__info');
             createChildElement(memberInfoContainer, 'p', 'members__name', memberName);
             createChildElement(memberInfoContainer, 'p', 'members__email', email);
 
             const memberRegContainer = createChildElement(membersDiv, 'div', 'members__reg');
-            createChildElement(memberRegContainer, 'p', null, new Date(registered).toLocaleDateString("en-US"));
+            createChildElement(memberRegContainer, 'p', null, new Date(registered).toLocaleDateString('en-US'));
             
             //RECENT ACTIVITY
-            const memberActContainer = document.querySelector(".recent-activity");
+            const memberActContainer = document.querySelector('.recent-activity');
             const memberContainer = createChildElement(memberActContainer, 'div', 'members');
 
             const memberActImgContainer = createChildElement(memberContainer, 'div');
@@ -167,7 +167,7 @@ $.ajax({
             const memberActImg = document.createElement('img');
             memberActImg.src = memberPicture;
             memberActImgContainer.appendChild(memberActImg);
-            memberActImg.className = "members--img";
+            memberActImg.className = 'members--img';
 
             const memberActInfoContainer = createChildElement(memberContainer, 'div', 'members__info');
             createChildElement(memberActInfoContainer, 'p', 'members__name', `${memberName} ${membersActivity.pop()}`);
@@ -190,32 +190,18 @@ $.ajax({
 /////////////////////////////
 
 //Add alert message to document
-document.addEventListener("DOMContentLoaded", () => {
-    const alertUl = document.createElement('ul');
-    const alertMessageLi = document.createElement('li');
-    const alertSpan = document.createElement('span');
+document.addEventListener('DOMContentLoaded', () => {
+    const alertUl = createChildElement(alert, 'ul');
+    createChildElement(alertUl, 'span', 'alert-span', 'Alert');
+    createChildElement(alertUl, 'li', null, 'Nullam quis risus eget urna mollis ornare cel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.')
+    const alertCloseLi = createChildElement(alertUl, 'li', 'alert-close', 'x');
 
-    alert.appendChild(alertUl);
+    //When user clicks 'X' alert message closes
+    alertCloseLi.addEventListener('click', () => {
+        alert.remove();
+    });
 
-    alertUl.appendChild(alertSpan);
-    alertSpan.innerHTML = "Alert";
-    alertSpan.className = "alert-span";
-
-    alertUl.appendChild(alertMessageLi);
-    alertMessageLi.innerText = "Nullam quis risus eget urna mollis ornare cel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.";
-   
-    alertUl.appendChild(alertCloseLi);
-    alertCloseLi.innerText = "x";
-    alertCloseLi.className = "alert-close";
-
-    overlay.style = "display:none";
-});
-
-const alertCloseLi = document.createElement('li');
-
-//When user clicks "X" alert message closes
-alertCloseLi.addEventListener("click", () => {
-    alert.remove();
+    overlay.style = 'display:none';
 });
 
 /////////////////////////////
@@ -223,24 +209,24 @@ alertCloseLi.addEventListener("click", () => {
 /////////////////////////////
 
 //When user clicks bell icon, notification modal pops up
-notification.addEventListener("click", () => {
-    notificationOverlay.style = "display:inline-block";
+notification.addEventListener('click', () => {
+    notificationOverlay.style = 'display:inline-block';
 });
 
-//When user clicks "X" modal closes
-verificationClose.addEventListener("click", () => {
+//When user clicks 'X' modal closes
+verificationClose.addEventListener('click', () => {
     verificationDiv.remove();
     removeOverlay();
 });
 
-messageClose.addEventListener("click", () => {
+messageClose.addEventListener('click', () => {
     messageDiv.remove();
     removeOverlay();
 });
 
 //removes overlay if notificationOverlay is empty
 function removeOverlay() { 
-    if (notificationOverlay.innerText == "") {
+    if (notificationOverlay.innerText === '') {
         notificationOverlay.remove();
         notificationCircle.remove();
     }
@@ -251,32 +237,32 @@ function removeOverlay() {
 /////////////////////////////
 
 //When user clicks send button a modal pops up
-sendButton.addEventListener("click", () => {
+sendButton.addEventListener('click', () => {
     event.preventDefault();
     
     //When search user and message field are empty
-    if (userSearch.value.length == 0 || userMessage.value.length == 0) {
-        modalMessage.innerHTML = "Missing required field";
-        overlay.style = "display: block";
+    if (userSearch.value.length === 0 || userMessage.value.length === 0) {
+        modalMessage.innerHTML = 'Missing required field';
+        overlay.style = 'display: block';
     }
     else {
-        modalMessage.innerHTML = "Message sent";
-        overlay.style = "display: block";
-        userSearch.value = "";
-        userMessage.value = "";
+        modalMessage.innerHTML = 'Message sent';
+        overlay.style = 'display: block';
+        userSearch.value = '';
+        userMessage.value = '';
     }
 });
 
-//When user clicks "X" modal closes
-closeModal.addEventListener("click", () => {
-    overlay.style = "display: none";
+//When user clicks 'X' modal closes
+closeModal.addEventListener('click', () => {
+    overlay.style = 'display: none';
 });
 
 ///////////////////////
 /// LOCAL STORAGE /////
 ///////////////////////
 
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener('click', function () {
     localStorage.selectedIndex = timeZoneOptions.selectedIndex;
     localStorage.profileState = profileSwitch.checked;
     localStorage.emailState = emailSwitch.checked;
@@ -294,15 +280,15 @@ if (localStorage.isSaved) {
 ///////////////////////
 
 // LINE CHART
-const trafficChart = document.getElementById("lineChart");
+const trafficChart = document.getElementById('lineChart');
 createLineChart(trafficChart,
     ['week-1', 'week-2', 'week-3', 'week-4', 'week-5', 'week-6', 'week-7'],
     [15, 1, 7, 18, 14, 3, 8],
     {max: 20, min: 0, stepSize: 0}
 );
 
-const chartFilter = document.querySelector(".chart-filter");
-chartFilter.addEventListener("click", (e) => {
+const chartFilter = document.querySelector('.chart-filter');
+chartFilter.addEventListener('click', (e) => {
 
     for (let i = 0; i < chartFilter.children.length; i++) {
         chartFilter.children[i].classList.remove('focus');
@@ -325,7 +311,7 @@ chartFilter.addEventListener("click", (e) => {
       }
      
 
-    if (e.target.tagName == "BUTTON") {
+    if (e.target.tagName === 'BUTTON') {
         if (e.target.id === 'hourly') {
             createLineChart(trafficChart,
                 ['12:00AM', '1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM'],
@@ -361,12 +347,12 @@ chartFilter.addEventListener("click", (e) => {
 });
 
 // BAR CHART
-var dailyTrafficChart = document.getElementById("barChart")
-var context = dailyTrafficChart.getContext("2d");
+var dailyTrafficChart = document.getElementById('barChart')
+var context = dailyTrafficChart.getContext('2d');
 new Chart(context, {
     type: 'bar',
     data: {
-        labels: ["S", "M", "T", "W", "T", "F", "S"],
+        labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         datasets: [{
             label: 'DAILY TRAFFIC',
             data: [75, 100, 175, 125, 225, 215, 100],
@@ -408,7 +394,7 @@ new Chart(context, {
 });
 
 //DONUT CHART
-var mobileUserChart = document.getElementById("donutChart");
+var mobileUserChart = document.getElementById('donutChart');
 new Chart(mobileUserChart, {
     type: 'doughnut',
     data: {
