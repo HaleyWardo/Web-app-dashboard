@@ -637,7 +637,7 @@ textarea::placeholder {
       .switch input:checked + .slider:after {
         content: 'ON'; }
       .switch input:checked + .slider:before {
-        transform: translateX(65px); }
+        transform: translateX(60px); }
     .switch input:focus + .slider {
       box-shadow: 0 0 1px #2196f3; }
   .switch .slider {
@@ -886,6 +886,8 @@ textarea::placeholder {
         width: 90%;
         font-size: 1.5625em;
         margin: 0 0 0.625em 0; }
+    .overlay__notification .verification__close {
+      cursor: pointer; }
   .overlay__notification .message {
     width: 95%;
     height: 7.8125em;
@@ -915,6 +917,8 @@ textarea::placeholder {
         width: 90%;
         margin: 0 0 0.625em 0;
         font-size: 1.5625em; }
+    .overlay__notification .message__close {
+      cursor: pointer; }
 
 .traffic-bar {
   margin: 0.9375em 1.25em;

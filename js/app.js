@@ -15,12 +15,19 @@ const messageDiv = document.querySelector(".message");
 const messageClose = document.querySelector(".message__close");
 
 const sendButton = document.querySelector(".btn--message-send");
+const saveButton = document.querySelector('.btn--settings-save');
+const emailSwitch = document.querySelector('.email');
+const profileSwitch = document.querySelector('.profile');
+
 const userSearch = document.querySelector(".user__search");
 const userMessage = document.querySelector(".user__message");
 const overlay = document.querySelector("#overlay");
 const modalMessage = document.querySelector(".modal-message");
 
 const closeModal = document.querySelector(".closeModal");
+
+const checkboxes = document.querySelectorAll('.checkbox');
+const timeZoneOptions = document.querySelector('.settings__timezone');
 
 let allMembers = [];
 
@@ -57,14 +64,14 @@ $.ajax({
             return name[0].toUpperCase() + name.slice(1);
         };
 
-// render members
+        // render members
         for (let i = 0; i < members.length; i++) {
-            const memberPicture = members[i].picture.thumbnail;
-            const memberFirstName = formatName(members[i].name.first);
-            const memberLastName = formatName(members[i].name.last);
-            const memberName = `${memberFirstName} ${memberLastName}`;
-
             const { email, registered, picture, name } = members[i];
+
+            const memberPicture = picture.thumbnail;
+            const memberFirstName = formatName(name.first);
+            const memberLastName = formatName(name.last);
+            const memberName = `${memberFirstName} ${memberLastName}`;
 
             //NEW MEMBERS
             const membersEl = document.querySelector(".new-members");
@@ -101,8 +108,7 @@ $.ajax({
             const memberReg = document.createElement('p');
             memberRegContainer.appendChild(memberReg);
             memberReg.innerHTML = new Date(registered).toLocaleDateString("en-US");
-             
-
+            
             //RECENT ACTIVITY
             const memberActContainer = document.querySelector(".recent-activity");
             const memberContainer = document.createElement('div');
@@ -131,9 +137,9 @@ $.ajax({
             memberActTimeP.className = "members__time";  
             memberActTimeP.innerHTML = memberTime.pop();   
             
-            const chevron = document.createElement('div') 
-                memberContainer.appendChild(chevron);
-                chevron.className = "chevron";
+            const chevron = document.createElement('div');
+            memberContainer.appendChild(chevron);
+            chevron.className = "chevron";
            
             // AUTOCOMPLETE FEATURE
             const datalist = document.querySelector('#searchableMembers');
@@ -143,7 +149,6 @@ $.ajax({
         }     
     },
 });
-
 
 ///////////////////////
 /// EVENT LISTENERS ///
@@ -182,7 +187,6 @@ alertCloseLi.addEventListener("click", () => {
     alert.remove();
 });
 
-
 /////////////////////////////
 //NOTIFICATION EVENT LISTENER
 /////////////////////////////
@@ -191,7 +195,6 @@ alertCloseLi.addEventListener("click", () => {
 notification.addEventListener("click", () => {
     notificationOverlay.style = "display:inline-block";
 });
-
 
 //When user clicks "X" modal closes
 verificationClose.addEventListener("click", () => {
@@ -218,7 +221,6 @@ function removeOverlay() {
 
 //When user clicks send button a modal pops up
 sendButton.addEventListener("click", () => {
-
     event.preventDefault();
     
     //When search user and message field are empty
@@ -239,14 +241,30 @@ closeModal.addEventListener("click", () => {
     overlay.style = "display: none";
 });
 
+///////////////////////
+/// LOCAL STORAGE /////
+///////////////////////
+
+saveButton.addEventListener("click", function () {
+    localStorage.selectedIndex = timeZoneOptions.selectedIndex;
+    localStorage.profileState = profileSwitch.checked;
+    localStorage.emailState = emailSwitch.checked;
+    localStorage.isSaved = true;
+});
+
+if (localStorage.isSaved) {
+    profileSwitch.checked = JSON.parse(localStorage.profileState);
+    timeZoneOptions.selectedIndex = localStorage.selectedIndex;
+    emailSwitch.checked = JSON.parse(localStorage.emailState);
+}
 
 ///////////////////////
 /////// CHARTS ////////
 ///////////////////////
 
 // LINE CHART
-var trafficChart = document.getElementById("lineChart");
-var lineChart = new Chart(trafficChart, {
+const trafficChart = document.getElementById("lineChart");
+new Chart(trafficChart, {
     type: 'line',
     data: {
         labels: ['week-1', 'week-2', 'week-3', 'week-4', 'week-5', 'week-6', 'week-7'],
@@ -467,12 +485,10 @@ chartFilter.addEventListener("click", (e) => {
     }
 });
 
-
-
 // BAR CHART
 var dailyTrafficChart = document.getElementById("barChart")
 var context = dailyTrafficChart.getContext("2d");
-var barChart = new Chart(context, {
+new Chart(context, {
     type: 'bar',
     data: {
         labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -518,7 +534,7 @@ var barChart = new Chart(context, {
 
 //DONUT CHART
 var mobileUserChart = document.getElementById("donutChart");
-var donutChart = new Chart(mobileUserChart, {
+new Chart(mobileUserChart, {
     type: 'doughnut',
     data: {
         labels: [
@@ -553,7 +569,3 @@ var donutChart = new Chart(mobileUserChart, {
         },
     }
 });
-
-
-
-

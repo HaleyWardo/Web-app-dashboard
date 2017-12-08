@@ -70,7 +70,10 @@
                 font-size: em(25px);
                 margin: 0 0 em(10px) 0;
             }
-        }        
+        }    
+        @include e(close) {
+            cursor: pointer;
+        }    
     }
 
     .message {
@@ -107,6 +110,10 @@
                 margin: 0 0 em(10px) 0;
                 font-size: em(25px);
             }
+        }
+
+        @include e(close) {
+            cursor: pointer;
         }
     }   
 }
