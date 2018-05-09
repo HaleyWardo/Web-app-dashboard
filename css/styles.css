@@ -945,3 +945,44 @@ textarea::placeholder {
   padding-bottom: 0; }
 
 /*# sourceMappingURL=styles.css.map */
+
+
+/* SVG requirement additions */
+
+.nav__item:first-child {
+  margin-right: 15px;
+}
+
+.nav__item:nth-of-type(3) {
+  border-left: solid 1px #564483;
+}
+
+.img--notification {
+  padding-right: 0;
+}
+
+.bell {
+  color: #FFFFFF;
+  transition: 1s;
+}
+
+.img--notification:hover .bell{
+  color: #75D799;
+  transition: 1s;
+}
+
+.img--notification {
+  border: none;
+}
+
+
+.socialSVG {
+  color: white;
+  transition: 1s;
+}
+
+.img--social:hover .socialSVG{
+  color: lightgrey;
+  transition: 1s;
+  transform: rotate(5deg);
+}
