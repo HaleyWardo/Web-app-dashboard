@@ -1,4 +1,4 @@
-/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css
 /* Document
    ========================================================================== */
 /**
@@ -718,8 +718,8 @@ textarea::placeholder {
 
 @media (min-width: 768px) {
   .main-container {
-    display: flex;
-    flex-direction: row; } }
+    display: grid;
+    grid-template-columns: 80px 3fr;} }
 
 .dashboard {
   padding: 0 1.25em;
@@ -739,7 +739,7 @@ textarea::placeholder {
 
 @media (min-width: 768px) {
   .dashboard-container {
-    width: 44.375em; } }
+     } }
 @media (min-width: 1100px) {
   .dashboard-container {
     border-right: 2px solid #65619E; } }
